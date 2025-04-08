@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "projet-co-s2-2025-08_faclink",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -9,6 +9,20 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.5.3"
-  }
+    "@tailwindcss/vite": "^4.1.3",
+    "astro": "^5.5.3",
+    "tailwindcss": "^4.1.3"
+  },
+  "description": "[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/F_6McqTJ) # Projet collectif S.2 2025",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MMI-SAE-203/projet-co-s2-2025-08_faclink.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MMI-SAE-203/projet-co-s2-2025-08_faclink/issues"
+  },
+  "homepage": "https://github.com/MMI-SAE-203/projet-co-s2-2025-08_faclink#readme"
 }

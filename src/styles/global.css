@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+  --font-Menu: 'Inter', sans-serif;
+}
+
+@layer base {
+    nav {
+      @apply font-Menu font-black text-base leading-normal;
+    }
+}
