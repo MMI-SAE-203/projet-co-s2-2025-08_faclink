@@ -2,10 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 import landingImage from '../assets/landingpage.webp';
 import fleche from '../assets/fleche.svg';
+import Card from '../components/Card.astro';
 ---
 
 <Layout>
-  <div class="relative bg-purple-900 text-white py-16 md:py-24 lg:py-32 flex flex-col items-center justify-center">
+  <div class="relative bg-fuchsia-900 text-white py-16 md:py-24 lg:py-32 flex flex-col items-center justify-center">
     <div class="absolute inset-0 overflow-hidden">
       <img src={landingImage.src} alt="" class="w-full h-full object-cover opacity-60" />
     </div>
@@ -13,7 +14,7 @@ import fleche from '../assets/fleche.svg';
       <h1 class="text-xl md:text-2xl lg:text-3xl font-bold text-orange-400 mb-4">Bienvenue sur Fac'Link !</h1>
       <p class="text-lg md:text-xl font-semibold mb-8">VOTRE CAMPUS EN UN CLIC, SUR FAC'LINK !</p>
       <div class="flex flex-col md:flex-row gap-4 w-full md:max-w-md">
-        <input type="email" placeholder="Ton email universitaire *" class="bg-purple-900 text-white rounded-full px-6 py-3 focus:outline-none focus:ring-2 focus:ring-orange-400" />
+        <input type="email" placeholder="Ton email universitaire *" class="bg-fuchsia-900 text-white rounded-full px-6 py-3 focus:outline-none focus:ring-2 focus:ring-orange-400" />
         <button class="bg-gradient-to-r from-pink-400 to-orange-400 hover:from-pink-500 hover:to-orange-500 text-white rounded-full px-8 py-3 font-bold">Inscrit toi !</button>
       </div>
       <p class="text-sm mt-4">* accès uniquement avec un email universitaire valide</p>
@@ -22,4 +23,49 @@ import fleche from '../assets/fleche.svg';
       <img src={fleche.src} alt="" class="w-fit h-48" />
     </div>
   </div>
+
+
+<section class="bg-fuchsia-800 text-white py-16 md:py-24 lg:py-32">
+  <div class="container mx-auto px-4">
+    <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8">Qui sommes-nous ?</h2>
+    <p class="text-lg text-center mb-8">
+      Fac'Link, c'est la plateforme qui connecte les étudiants à leur campus. Pensée par des étudiants, pour des étudiants, elle simplifie la vie universitaire :
+    </p>
+    <ul class="list-disc list-inside text-lg mb-8 list-none">
+      <li>Événements : découvre et participe à la vie du campus.</li>
+      <li>Rencontres : trouve des amis et échange avec eux.</li>
+      <li>Bons plans : accède aux offres et opportunités étudiantes.</li>
+    </ul>
+
+    <div class="bg-fuchsia-900 rounded-lg shadow-lg py-8 px-6 md:py-12 md:px-10 lg:py-16 lg:px-12">
+      <h3 class="text-xl md:text-2xl font-semibold text-center mb-6">Pourquoi rejoindre Fac'Link ?</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <p class="mb-4">Être étudiant, c'est une expérience unique, mais ça peut aussi être un vrai défi :</p>
+          <ul class="list-disc list-inside">
+            <li>Où trouver les meilleurs événements étudiants ?</li>
+            <li>Comment rencontrer du monde sur le campus ?</li>
+            <li>Où dénicher les bons plans et offres réservés aux étudiants ?</li>
+          </ul>
+        </div>
+        <div>
+          <p class="mb-4">Fac'Link est la plateforme qui simplifie ta vie étudiante :</p>
+          <ul class="list-disc list-inside">
+            <li>Accède facilement aux événements de ton campus.</li>
+            <li>Connecte-toi avec d'autres étudiants selon tes centres d'intérêt.</li>
+            <li>Profite de réductions exclusives sur les restaurants, bars et cinémas.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center mt-8">
+        <button class="bg-gradient-to-r from-pink-400 to-orange-400 hover:from-pink-500 hover:to-orange-500 text-white rounded-full px-8 py-3 font-bold">
+          Découvrir les fonctionnalités
+        </button>
+      </div>
+    </div>
+
+    <p class="text-xl font-bold text-center mt-12">Un seul outil, des tonnes d'avantages !</p>
+  </div>
+</section>
+<Card/>
 </Layout>

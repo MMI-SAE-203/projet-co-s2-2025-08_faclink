@@ -2,7 +2,7 @@
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="top-0 left-0 w-full sticky flex items-center px-4 md:px-8 lg:px-16 h-16 md:h-20 bg-fuchsia-900 text-white z-10 space-x-5">
+<header class="top-0 left-0 w-full sticky flex items-center px-4 md:px-8 lg:px-16 h-16 md:h-20 bg-fuchsia-900 text-white z-30 space-x-5">
   <a href="/" class="flex items-center text-xl">
    <img src="/src/assets/logo.svg" alt="logo">
   </a>
@@ -21,7 +21,7 @@ const currentPath = Astro.url.pathname;
 </nav>
 
 
-  <div class="lg:hidden">
+  <div class="lg:hidden right-0 flex items-center ml-auto">
     <button id="menu-btn" class="outline-none focus:outline-none" aria-label="Menu">
       <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
         <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
@@ -31,7 +31,7 @@ const currentPath = Astro.url.pathname;
 
   <div
     id="menu"
-    class="hidden lg:hidden absolute top-full left-0 w-full bg-purple-900 text-white py-4 flex flex-col items-center gap-4"
+    class="hidden lg:hidden absolute top-full left-0 w-full bg-fuchsia-900 text-white py-4 flex flex-col items-center gap-4 z-20"
   >
     <a href="/a-propos" class="hover:text-pink-400">À propos</a>
     <a href="/fonctionnalites" class="hover:text-pink-400">Fonctionnalités</a>
@@ -45,10 +45,12 @@ const currentPath = Astro.url.pathname;
 <script>
   const toggle = document.querySelector("#menu-btn");
   const nav = document.querySelector("#menu");
+  const body = document.body;
 
   if (toggle && nav) {
     toggle.addEventListener("click", () => {
       nav.classList.toggle("hidden");
+      body.classList.toggle("overflow-hidden");
     });
   }
 </script>
