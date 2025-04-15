@@ -2,7 +2,7 @@
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="top-0 left-0 w-full sticky flex items-center px-4 md:px-8 lg:px-16 h-16 md:h-20 bg-fuchsia-900 text-white z-30 space-x-5">
+<header class="top-0 left-0 w-full sticky flex items-center px-4 md:px-8 lg:px-16 h-16 md:h-20 bg-(--color-violet) text-white z-30 space-x-5">
   <a href="/" class="flex items-center text-xl">
    <img src="/src/assets/logo.svg" alt="logo">
   </a>
@@ -15,8 +15,8 @@ const currentPath = Astro.url.pathname;
     <a href="/contactez-nous" class="hover:text-pink-400">Contactez-nous</a>
 </div>
     <div class="flex items-center space-x-4">
-        <a href="/inscription" class="bg-pink-500 hover:bg-pink-400 text-white rounded-full px-4 py-2 text-sm">Inscrit toi</a>
-          <a href="/connexion" class="bg-orange-500 hover:bg-orange-400 text-white rounded-full px-4 py-2 text-sm">Connecte toi</a>
+        <a href="/inscription" class="bg-(--color-rose) hover:bg-pink-400 text-white rounded-full px-4 py-2 text-sm">Inscrit toi</a>
+          <a href="/connexion" class="bg-(--color-orange) hover:bg-orange-400 text-white rounded-full px-4 py-2 text-sm">Connecte toi</a>
       </div>
 </nav>
 
@@ -31,14 +31,14 @@ const currentPath = Astro.url.pathname;
 
   <div
     id="menu"
-    class="hidden lg:hidden absolute top-full left-0 w-full bg-fuchsia-900 text-white py-4 flex flex-col items-center gap-4 z-20"
+    class="hidden lg:hidden absolute top-full left-0 w-full bg-(--color-violet) text-white py-4 flex flex-col items-center gap-4 z-20"
   >
     <a href="/a-propos" class="hover:text-pink-400">À propos</a>
     <a href="/fonctionnalites" class="hover:text-pink-400">Fonctionnalités</a>
     <a href="/infos-pratiques" class="hover:text-pink-400">Infos pratiques</a>
     <a href="/contactez-nous" class="hover:text-pink-400">Contactez-nous</a>
     <a href="/inscription" class="bg-pink-400 hover:bg-pink-500 text-white rounded-full px-4 py-2 text-sm">Inscrit toi</a>
-    <a href="/connexion" class="bg-orange-400 hover:bg-orange-500 text-white rounded-full px-4 py-2 text-sm">Connecte toi</a>
+    <a href="/connexion" class="bg-(--color-orange) hover:bg-orange-500 text-white rounded-full px-4 py-2 text-sm">Connecte toi</a>
   </div>
 </header>
 
