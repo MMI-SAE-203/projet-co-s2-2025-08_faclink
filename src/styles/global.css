@@ -1,14 +1,21 @@
 @import "tailwindcss";
+@import "@fontsource/paytone-one/400.css";
 
 @theme {
   --font-Menu: 'Inter', sans-serif;
   --color-violet: #54004D;
   --color-orange: #FC8A4F;
   --color-rose: #EA417C;
-  --gradient-rose-orange: linear-gradient(to right, var(--color-rose) 0%, var(--color-orange) 100%);
+  --font-titre: 'Paytone One', sans-serif;
+}
 
 @layer base {
     nav {
       @apply font-Menu font-black text-base leading-normal;
     }
+  h1 {
+    @apply font-titre text-4xl text-violet;
+  }
 }
+
+
