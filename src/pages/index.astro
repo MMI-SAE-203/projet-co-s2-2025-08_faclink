@@ -16,6 +16,9 @@ import lucas from '../assets/lucas.webp';
 import perdu from '../assets/perdu.webp';
 import discu from '../assets/discu.webp';
 import courier from '../assets/courier.webp';
+import maelie from '../assets/maelie.webp';
+import alice from '../assets/alice.webp';
+import mathis from '../assets/mathis.webp';
 ---
 
 <Layout>
@@ -194,3 +197,34 @@ import courier from '../assets/courier.webp';
       <button class="bg-[var(--color-orange)] hover:bg-pink-600 text-white rounded-full px-8 py-4 mt-8 font-bold" style="font-family: var(--font-Menu);">Rejoindre Fac'Link maintenant</button>
     </div>
   </section>
+  <section class="bg-[var(--color-violet)] text-white py-16 md:py-24 lg:py-32">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-8" style="font-family: var(--font-Menu);">Notre équipe</h2>
+      <p class="mb-8 italic">Fac'Link est porté par des étudiants du BUT MMI Montbéliard</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="relative bg-gradient-to-r from-[var(--color-orange)] to-[var(--color-rose)] rounded-xl p-6 md:p-8 flex items-center text-white">
+          <img src={maelie.src} alt="Addario Maëlie" class="w-24 h-24 rounded-full object-cover mr-4" />
+          <div>
+            <h3 class="font-semibold text-lg md:text-xl" style="font-family: var(--font-Menu);">Addario Maëlie</h3>
+            <p class="text-sm md:text-md" style="font-family: var(--font-Menu);">BUT MMI 1 - Design & Communication</p>
+          </div>
+        </div>
+        <div class="relative bg-gradient-to-r from-[var(--color-orange)] to-[var(--color-rose)] rounded-xl p-6 md:p-8 flex items-center text-white">
+          <img src={alice.src} alt="Frelin Alice" class="w-24 h-24 rounded-full object-cover mr-4" />
+          <div>
+            <h3 class="font-semibold text-lg md:text-xl" style="font-family: var(--font-Menu);">Frelin Alice</h3>
+            <p class="text-sm md:text-md" style="font-family: var(--font-Menu);">BUT MMI 1 - Communication</p>
+          </div>
+        </div>
+        <div class="relative bg-gradient-to-r from-[var(--color-orange)] to-[var(--color-rose)] rounded-xl p-6 md:p-8 flex items-center text-white">
+          <img src={mathis.src} alt="Juillard Mathis" class="w-24 h-24 rounded-full object-cover mr-4" />
+          <div>
+            <h3 class="font-semibold text-lg md:text-xl" style="font-family: var(--font-Menu);">Juillard Mathis</h3>
+            <p class="text-sm md:text-md" style="font-family: var(--font-Menu);">BUT MMI 1 - Communication & Développement</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
