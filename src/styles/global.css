@@ -2,7 +2,10 @@
 
 @theme {
   --font-Menu: 'Inter', sans-serif;
-}
+  --color-violet: #54004D;
+  --color-orange: #FC8A4F;
+  --color-rose: #EA417C;
+  --gradient-rose-orange: linear-gradient(to right, var(--color-rose) 0%, var(--color-orange) 100%);
 
 @layer base {
     nav {
