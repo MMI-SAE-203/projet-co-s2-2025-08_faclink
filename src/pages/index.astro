@@ -22,7 +22,7 @@ import mathis from '../assets/mathis.webp';
 ---
 
 <Layout>
-  <div class="relative bg-[var(--color-violet)] text-white py-16 md:py-24 lg:py-32 flex flex-col items-center justify-center">
+  <div class="relative bg-(--color-violet) text-white py-16 md:py-24 lg:py-32 flex flex-col items-center justify-center">
     <div class="absolute inset-0 overflow-hidden">
       <img src={landingImage.src} alt="" class="w-full h-full object-cover opacity-60" />
     </div>
@@ -30,7 +30,7 @@ import mathis from '../assets/mathis.webp';
       <h1 class="text-xl md:text-2xl lg:text-3xl font-bold text-[var(--color-orange)] mb-4">Bienvenue sur Fac'Link !</h1>
       <p class="text-lg md:text-xl font-semibold mb-8" style="font-family: var(--font-Menu);">VOTRE CAMPUS EN UN CLIC, SUR FAC'LINK !</p>
       <div class="flex flex-col md:flex-row gap-4 w-full md:max-w-md">
-        <input type="email" placeholder="Ton email universitaire *" class="bg-[var(--color-violet)] text-white rounded-full px-6 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--color-orange)]" />
+        <input type="email" placeholder="Ton email universitaire *" class="bg-(--color-violet) text-white rounded-full px-6 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--color-orange)]" />
         <button class="bg-gradient-to-r from-[var(--color-orange)] to-[var(--color-rose)] hover:from-pink-500 hover:to-orange-500 text-white rounded-full px-8 py-3 font-bold" style="font-family: var(--font-Menu);">Inscrit toi !</button>
       </div>
       <p class="text-sm mt-4" style="font-family: var(--font-Menu);">* accès uniquement avec un email universitaire valide</p>
@@ -40,7 +40,7 @@ import mathis from '../assets/mathis.webp';
     </div>
   </div>
 
-  <section class="bg-[var(--color-violet)] text-white py-16 md:py-24 lg:py-32">
+  <section class="bg-(--color-violet) text-white py-16 md:py-24 lg:py-32">
     <div class="container mx-auto px-4">
       <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8" style="font-family: var(--font-Menu);">Qui sommes-nous ?</h2>
       <p class="text-lg text-center mb-8" style="font-family: var(--font-Menu);">
@@ -52,7 +52,7 @@ import mathis from '../assets/mathis.webp';
         <li>Bons plans : accède aux offres et opportunités étudiantes.</li>
       </ul>
 
-      <div class="relative bg-white rounded-4xl shadow-lg py-8 px-6 md:py-12 md:px-10 lg:py-8 lg:px-12 text-[var(--color-violet)] border-2 border-[var(--color-orange)]">
+      <div class="relative bg-white rounded-4xl shadow-lg py-8 px-6 md:py-12 md:px-10 lg:py-8 lg:px-12 text-(--color-violet) border-2 border-[var(--color-orange)]">
         <h3 class="text-xl md:text-2xl font-semibold text-left mb-6" style="font-family: var(--font-Menu);">Pourquoi rejoindre Fac'Link ?</h3>
         <div class="flex items-center">
           <div class="w-1/2 pr-6">
@@ -62,6 +62,7 @@ import mathis from '../assets/mathis.webp';
               <li>Comment rencontrer du monde sur le campus ?</li>
               <li>Où dénicher les bons plans et offres réservés aux étudiants ?</li>
             </ul>
+
           </div>
           <div class="w-1 h-20 bg-gray-300"></div>
           <div class="w-1/2 pl-6">
@@ -71,6 +72,7 @@ import mathis from '../assets/mathis.webp';
               <li>Connecte-toi avec d'autres étudiants selon tes centres d'intérêt.</li>
               <li>Profite de réductions exclusives sur les restaurants, bars et cinémas.</li>
             </ul>
+
             <div class="absolute bottom-[-20px] left-1/2 transform -translate-x-1/2">
               <button class="bg-[var(--color-rose)] hover:bg-pink-600 text-white rounded-full px-8 py-3 font-bold" style="font-family: var(--font-Menu);">
                 Découvrir les fonctionnalités
@@ -85,14 +87,14 @@ import mathis from '../assets/mathis.webp';
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div class="rounded-4xl flex items-center bg-white shadow-md">
           <div class="p-6">
-            <h3 class="text-xl font-semibold text-[var(--color-violet)]" style="font-family: var(--font-Menu);">Événements & Agenda</h3>
+            <h3 class="text-xl font-semibold text-(--color-violet)" style="font-family: var(--font-Menu);">Événements & Agenda</h3>
           </div>
           <img src={personnes.src} alt="personnes" class="w-32 h-32 object-contain ml-auto p-4" />
         </div>
         <div class="rounded-4xl flex items-center bg-[var(--color-orange)] shadow-md">
           <div class="p-6">
-            <h3 class="text-xl font-semibold text-[var(--color-violet)]" style="font-family: var(--font-Menu);">Mur des Étudiants</h3>
-          </div>
+            <h3 class="text-xl font-semibold text-(--color-violet)" style="font-family: var(--font-Menu);">Mur des Étudiants</h3>
+          </div>)
           <img src={ordi.src} alt="ordi" class="w-32 h-32 object-contain ml-auto p-4" />
         </div>
         <div class="rounded-4xl flex items-center bg-[var(--color-rose)] shadow-md">
@@ -103,7 +105,7 @@ import mathis from '../assets/mathis.webp';
         </div>
         <div class="rounded-4xl flex items-center bg-[var(--color-orange)] shadow-md">
           <div class="p-6">
-            <h3 class="text-xl font-semibold text-[var(--color-violet)]" style="font-family: var(--font-Menu);">Espace BDE</h3>
+            <h3 class="text-xl font-semibold text-(--color-violet)" style="font-family: var(--font-Menu);">Espace BDE</h3>
           </div>
           <img src={content.src} alt="content" class="w-32 h-32 object-contain ml-auto p-4" />
         </div>
@@ -125,46 +127,46 @@ import mathis from '../assets/mathis.webp';
     </div>
   </section>
 
-  <section class="bg-[var(--color-violet)] text-white py-16 md:py-24 lg:py-32">
+  <section class="bg-(--color-violet) text-white py-16 md:py-24 lg:py-32">
     <div class="container mx-auto px-4">
       <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8" style="font-family: var(--font-Menu);">La communauté Fac'Link en parle mieux que nous !</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white rounded-2xl shadow-md p-6 text-center text-[var(--color-violet)]">
+        <div class="bg-white rounded-2xl shadow-md p-6 text-center text-(--color-violet)">
           <img src={sophie.src} alt="Sophie Martin" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
           <h3 class="font-semibold" style="font-family: var(--font-Menu);">Sophie Martin</h3>
           <p class="text-sm mb-2" style="font-family: var(--font-Menu);">Étudiante en communication</p>
           <p class="text-sm italic" style="font-family: var(--font-Menu);">Grâce à Fac'Link, j'ai pu rencontrer des étudiants d'autres filières et élargir mon réseau !</p>
         </div>
 
-        <div class="bg-white rounded-2xl shadow-md p-6 text-center text-[var(--color-violet)]">
+        <div class="bg-white rounded-2xl shadow-md p-6 text-center text-(--color-violet)">
           <img src={amed.src} alt="Ahmed Diallo" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
           <h3 class="font-semibold" style="font-family: var(--font-Menu);">Ahmed Diallo</h3>
           <p class="text-sm mb-2" style="font-family: var(--font-Menu);">Étudiant en ingénierie</p>
           <p class="text-sm italic" style="font-family: var(--font-Menu);">La plateforme m'aide à mieux organiser mon travail avec des outils collaboratifs super intuitifs.</p>
         </div>
 
-        <div class="bg-white rounded-2xl shadow-md p-6 text-center text-[var(--color-violet)]">
+        <div class="bg-white rounded-2xl shadow-md p-6 text-center text-(--color-violet)">
           <img src={lea.src} alt="Léa Dubois" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
           <h3 class="font-semibold" style="font-family: var(--font-Menu);">Léa Dubois</h3>
           <p class="text-sm mb-2" style="font-family: var(--font-Menu);">Étudiante en marketing</p>
           <p class="text-sm italic" style="font-family: var(--font-Menu);">Fac'Link m'a permis de trouver un stage grâce aux annonces exclusives partagées par les étudiants.</p>
         </div>
 
-        <div class="bg-white rounded-2xl shadow-md p-6 text-center text-[var(--color-violet)]">
+        <div class="bg-white rounded-2xl shadow-md p-6 text-center text-[(--color-violet)">
           <img src={sarah.src} alt="Sarah Lefevre" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
           <h3 class="font-semibold" style="font-family: var(--font-Menu);">Sarah Lefevre</h3>
           <p class="text-sm mb-2" style="font-family: var(--font-Menu);">Étudiante en économie</p>
           <p class="text-sm italic" style="font-family: var(--font-Menu);">Le fil d'actualité est top pour rester informé des événements et des opportunités sur le campus !</p>
         </div>
 
-        <div class="bg-white rounded-2xl shadow-md p-6 text-center text-[var(--color-violet)]">
+        <div class="bg-white rounded-2xl shadow-md p-6 text-center text-(--color-violet)">
           <img src={manon.src} alt="Manon Bernard" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
           <h3 class="font-semibold" style="font-family: var(--font-Menu);">Manon Bernard</h3>
           <p class="text-sm mb-2" style="font-family: var(--font-Menu);">Étudiante en sciences sociales</p>
           <p class="text-sm italic" style="font-family: var(--font-Menu);">Je ne rate plus aucun événement important grâce aux rappels et aux notifications personnalisées.</p>
         </div>
 
-        <div class="bg-white rounded-2xl shadow-md p-6 text-center text-[var(--color-violet)]">
+        <div class="bg-white rounded-2xl shadow-md p-6 text-center text-(--color-violet)">
           <img src={lucas.src} alt="Lucas Morel" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
           <h3 class="font-semibold" style="font-family: var(--font-Menu);">Lucas Morel</h3>
           <p class="text-sm mb-2" style="font-family: var(--font-Menu);">Étudiant en informatique</p>
@@ -174,7 +176,7 @@ import mathis from '../assets/mathis.webp';
     </div>
   </section>
 
-  <section class="bg-[var(--color-violet)] text-white py-16 md:py-24 lg:py-32">
+  <section class="bg-(--color-violet) text-white py-16 md:py-24 lg:py-32">
     <div class="container mx-auto px-4 text-center">
       <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-8" style="font-family: var(--font-Menu);">Prêt à rejoindre la communauté Fac'Link ?</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -197,7 +199,7 @@ import mathis from '../assets/mathis.webp';
       <button class="bg-[var(--color-orange)] hover:bg-pink-600 text-white rounded-full px-8 py-4 mt-8 font-bold" style="font-family: var(--font-Menu);">Rejoindre Fac'Link maintenant</button>
     </div>
   </section>
-  <section class="bg-[var(--color-violet)] text-white py-16 md:py-24 lg:py-32">
+  <section class="bg-(--color-violet) text-white py-16 md:py-24 lg:py-32">
     <div class="container mx-auto px-4 text-center">
       <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-8" style="font-family: var(--font-Menu);">Notre équipe</h2>
       <p class="mb-8 italic">Fac'Link est porté par des étudiants du BUT MMI Montbéliard</p>
