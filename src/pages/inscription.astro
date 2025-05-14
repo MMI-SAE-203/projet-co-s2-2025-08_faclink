@@ -1,118 +1,31 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import '../styles/global.css';
+// backend
+import { registerEtudiant } from '../../backend/backend.mjs';
+import Header from '../../src/components/Header.astro';
+import Footer from '../../src/components/Footer.astro';
+
+let message = '';
+
+if (Astro.request.method === "POST") {
+    const formData = await Astro.request.formData();
+    const response = await registerEtudiant(formData);
+    message = response.message;
+}
 ---
 
-<Layout title="Inscription - FacLink">
-    <section class="inscription-container">
-        <div class="form-wrapper">
-            <h1>Inscription</h1>
-            <form class="inscription-form" method="POST">
-                <div class="form-group">
-                    <label for="name">Nom complet</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="confirmPassword">Confirmer le mot de passe</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" required>
-                </div>
-                
-                <button type="submit" class="btn-primary">S'inscrire</button>
-            </form>
-            
-            <div class="login-link">
-                <p>Vous avez déjà un compte? <a href="/connexion">Connectez-vous</a></p>
-            </div>
-        </div>
-    </section>
-</Layout>
+<Header />
+<h1 class="text-xl font-semibold mb-4">Créer un compte étudiant</h1>
+<p class="text-red-600">{message}</p>
 
-<style>
-    .inscription-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 80vh;
-        padding: 2rem;
-    }
+<form action="/connecte " method="POST" class="flex flex-col gap-3 max-w-md">
+    <input type="text" name="name" placeholder="Nom et prénom" required class="input" />
+    <input type="email" name="email" placeholder="Adresse email universitaire" required class="input" />
+    <input type="password" name="mot_de_passe" placeholder="Mot de passe" required class="input" />
+    <input type="text" name="campus" placeholder="Campus (ex: Montbéliard)" required class="input" />
+    <input type="text" name="centre_interet" placeholder="Centre d’intérêt (ex: sport, cinéma...)" class="input" />
     
-    .form-wrapper {
-        background-color: #fff;
-        border-radius: 8px;
-        padding: 2rem;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        width: 100%;
-        max-width: 500px;
-    }
-    
-    h1 {
-        text-align: center;
-        margin-bottom: 2rem;
-        color: #333;
-    }
-    
-    .inscription-form {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-    
-    .form-group {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-    
-    label {
-        font-weight: 600;
-        font-size: 0.9rem;
-    }
-    
-    input {
-        padding: 0.75rem;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        font-size: 1rem;
-    }
-    
-    .btn-primary {
-        background-color: #4a6cf7;
-        color: white;
-        border: none;
-        padding: 0.75rem;
-        border-radius: 4px;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        margin-top: 1rem;
-    }
-    
-    .btn-primary:hover {
-        background-color: #3a5be0;
-    }
-    
-    .login-link {
-        text-align: center;
-        margin-top: 1.5rem;
-    }
-    
-    .login-link a {
-        color: #4a6cf7;
-        text-decoration: none;
-    }
-    
-    .login-link a:hover {
-        text-decoration: underline;
-    }
-</style>
+    <button type="submit" class="bg-purple-700 text-white py-2 px-4 rounded hover:bg-purple-800">
+        Créer mon compte
+    </button>
+</form>
+<Footer />
