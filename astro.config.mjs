@@ -7,6 +7,7 @@ import alpinejs from '@astrojs/alpinejs';
 
 import netlify from '@astrojs/netlify';
 
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,8 +15,8 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   output: 'server',
-  integrations: [alpinejs()],
-  adapter: netlify()
-
+  integrations: [alpinejs(), sitemap()],
+  adapter: netlify(),
+  site: "https://faclink.netlify.app",
 
 });
