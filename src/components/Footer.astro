@@ -1,9 +1,10 @@
 ---
 const year = new Date().getFullYear();
-import Insta from '../assets/instagram.svg'
-import TikTok from '../src/assets/tiktok.svg';
-import Facebook from '../assets/pinterest.svg';
+import instagram from '../assets/instagram.svg'
+import tiktok from '../assets/tiktok.svg'
+import pinterest from '../assets/pinterest.svg'
 ---
+
 <footer class="relative overflow-hidden bg-(--color-orange) p-6">
   <div class="rounded-3xl bg-pink-500 p-2">
     <div class="rounded-3xl bg-(--color-violet) p-8 text-center text-(--color-orange)">
@@ -17,11 +18,10 @@ import Facebook from '../assets/pinterest.svg';
       <h4 class="mb-8 text-3xl font-bold">Contactez-Nous :</h4>
 
     <div class="flex justify-center space-x-4 mb-8">
-        <img src="/src/assets/instagram.svg" alt="Instagram" class="h-12 w-12" />
-        <img src="/src/assets/tiktok.svg" alt="TikTok" class="h-12 w-12" />
-        <img src="/src/assets/pinterest.svg" alt="Facebook" class="h-12 w-12" />
-        
-    </div>
+      <img src={instagram.src} alt="instagram" class="h-12 w-12" />
+      <img src={tiktok.src} alt="TikTok" class="h-12 w-12" />
+     <img src={pinterest.src} alt="Pinterest" class="h-12 w-12" />
+</div>
 
       <div class="mb-4 text-white">
         <p class="text-lg">Nos réseaux: faclink_off</p>
