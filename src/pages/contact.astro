@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import tape from '../assets/tape.webp';
 ---
 
 <Layout title="Contactez-Nous">
@@ -8,7 +9,7 @@ import Layout from '../layouts/Layout.astro';
       <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-8" style="font-family: var(--font-Menu);">Contactez-Nous</h1>
       <div class="max-w-lg mx-auto bg-white text-[var(--color-violet)] rounded-xl shadow-md p-8">
         <div class="flex justify-center mb-6">
-          <img src="../src/assets/tape.webp" alt="Contactez-Nous" class="w-32 h-auto" />
+          <img src={tape.src} alt="Contactez-Nous" class="w-32 h-auto" />
         </div>
         <h2 class="text-xl font-semibold mb-4" style="font-family: var(--font-Menu);">Envoyez nous un message</h2>
         <form class="flex flex-col gap-4">
