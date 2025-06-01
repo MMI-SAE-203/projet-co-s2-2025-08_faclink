@@ -3,20 +3,21 @@
 
 Éléménts à renseigner pour la soutenance :
 
-- [ ] Nom du projet :
-- [ ] URL de la landing page :
-- [ ] URL de l'application finale :
-- [ ] URL de connexion au back office :
-- [ ] Identifiant de connexion au backoffice :
-- [ ] Mot de passe de connexion au backoffice :
-- [ ] URL de la maquette FIGMA :
-- [ ] Description du projet :
+- [ ] Nom du projet : Fac'link
+- [ ] URL de la landing page : https://faclink.netlify.app/
+- [ ] URL de l'application finale :https://faclink.netlify.app/
+- [ ] URL de connexion au back office : https://pb-faclink.alice-frelin.fr/_/
+- [ ] Identifiant de connexion au backoffice : mathisjuillard@icloud.com
+- [ ] Mot de passe de connexion au backoffice : Mathisjuillard23
+- [ ] URL de la maquette FIGMA : https://www.figma.com/design/cV8gzZUd11r3ukDVKwaqME/Copie-maquette-fac-link%C2%B2?node-id=113-3&t=y71FBfRYrSVnvwfq-1
+- [ ] Description du projet : 
+Notre site, Fac’Link, propose aux étudiants de faire des rencontres basées sur leur centres d'intérêts, ainsi que de chercher des évènements et rester informé des messages de leur BDE.
+
 
 ## 🚀 Équipe
 
 | Étudiants    | Prénom NOM  |
 | :----------- | :---------- |
-| Étudiant 1   | à compléter |
-| Étudiant 2   | à compléter |
-| Étudiant 3   | à compléter |
-| (Étudiant 4) | à compléter |
+| Étudiant 1   | Maëlie Addario|
+| Étudiant 2   | Alice Frelin |
+| Étudiant 3   | Mathis Juillard |
