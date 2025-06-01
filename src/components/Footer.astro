@@ -3,6 +3,7 @@ const year = new Date().getFullYear();
 import instagram from '../assets/instagram.svg'
 import tiktok from '../assets/tiktok.svg'
 import pinterest from '../assets/pinterest.svg'
+import logo from '../assets/logo.svg'
 ---
 
 <footer class="relative overflow-hidden bg-(--color-orange) p-6">
@@ -12,7 +13,7 @@ import pinterest from '../assets/pinterest.svg'
       <h3 class="mb-12 text-4xl font-bold">Bienvenue sur Fac'Link !</h3>
 
       <div class="mb-10 flex justify-center">
-       <img src="/src/assets/logo.svg" alt="" class="h-40" />
+       <img src={logo.src} alt="" class="h-40" />
       </div>
 
       <h4 class="mb-8 text-3xl font-bold">Contactez-Nous :</h4>
