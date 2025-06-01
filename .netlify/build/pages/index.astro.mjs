@@ -1,0 +1,177 @@
+import { f as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead, h as addAttribute } from '../chunks/astro/server_Dc7gvlnh.mjs';
+import 'kleur/colors';
+import { c as createSvgComponent, $ as $$Layout } from '../chunks/Layout_Djg7MDee.mjs';
+import { p as personnes, c as content, d as discu, m as maelie, a as alice, b as mathis } from '../chunks/discu_kmS2IGrn.mjs';
+import { t as tape } from '../chunks/tape_CgeWMIOi.mjs';
+export { renderers } from '../renderers.mjs';
+
+const landingImage = new Proxy({"src":"/_astro/landingpage.CnCrnBBQ.webp","width":2880,"height":2048,"format":"webp"}, {
+						get(target, name, receiver) {
+							if (name === 'clone') {
+								return structuredClone(target);
+							}
+							if (name === 'fsPath') {
+								return "/Users/admin/Documents/GitHub/projet-co-s2-2025-08_faclink/src/assets/landingpage.webp";
+							}
+							
+							return target[name];
+						}
+					});
+
+const fleche = createSvgComponent({"meta":{"src":"/_astro/fleche.CdflotS5.svg","width":715,"height":330,"format":"svg"},"attributes":{"width":"715","height":"330","fill":"none"},"children":"<path d=\"M446.842 144.375l-89.369-41.25-89.368 41.25\" stroke=\"url(#a)\" stroke-width=\"5.129\" /><path d=\"M446.842 226.875l-89.369-41.25-89.368 41.25\" stroke=\"url(#b)\" stroke-width=\"5.129\" /><defs><linearGradient id=\"a\" x1=\"357.473\" y1=\"144.375\" x2=\"357.473\" y2=\"103.125\" gradientUnits=\"userSpaceOnUse\"><stop offset=\".47\" stop-color=\"#FC8A4F\" /><stop offset=\"1\" stop-color=\"#EA417C\" /></linearGradient><linearGradient id=\"b\" x1=\"357.473\" y1=\"226.875\" x2=\"357.473\" y2=\"185.625\" gradientUnits=\"userSpaceOnUse\"><stop offset=\".47\" stop-color=\"#FC8A4F\" /><stop offset=\"1\" stop-color=\"#EA417C\" /></linearGradient></defs>"});
+
+const ordi = new Proxy({"src":"/_astro/ordi.CKRBU-xU.webp","width":432,"height":432,"format":"webp"}, {
+						get(target, name, receiver) {
+							if (name === 'clone') {
+								return structuredClone(target);
+							}
+							if (name === 'fsPath') {
+								return "/Users/admin/Documents/GitHub/projet-co-s2-2025-08_faclink/src/assets/ordi.webp";
+							}
+							
+							return target[name];
+						}
+					});
+
+const verifier = new Proxy({"src":"/_astro/verifier.C3AKuppa.webp","width":438,"height":438,"format":"webp"}, {
+						get(target, name, receiver) {
+							if (name === 'clone') {
+								return structuredClone(target);
+							}
+							if (name === 'fsPath') {
+								return "/Users/admin/Documents/GitHub/projet-co-s2-2025-08_faclink/src/assets/verifier.webp";
+							}
+							
+							return target[name];
+						}
+					});
+
+const sophie = new Proxy({"src":"/_astro/sophie.NKPRhopX.webp","width":319,"height":324,"format":"webp"}, {
+						get(target, name, receiver) {
+							if (name === 'clone') {
+								return structuredClone(target);
+							}
+							if (name === 'fsPath') {
+								return "/Users/admin/Documents/GitHub/projet-co-s2-2025-08_faclink/src/assets/sophie.webp";
+							}
+							
+							return target[name];
+						}
+					});
+
+const amed = new Proxy({"src":"/_astro/amed.C7NEIUZB.webp","width":314,"height":326,"format":"webp"}, {
+						get(target, name, receiver) {
+							if (name === 'clone') {
+								return structuredClone(target);
+							}
+							if (name === 'fsPath') {
+								return "/Users/admin/Documents/GitHub/projet-co-s2-2025-08_faclink/src/assets/amed.webp";
+							}
+							
+							return target[name];
+						}
+					});
+
+const lea = new Proxy({"src":"/_astro/lea.h8vUjnJ_.webp","width":317,"height":322,"format":"webp"}, {
+						get(target, name, receiver) {
+							if (name === 'clone') {
+								return structuredClone(target);
+							}
+							if (name === 'fsPath') {
+								return "/Users/admin/Documents/GitHub/projet-co-s2-2025-08_faclink/src/assets/lea.webp";
+							}
+							
+							return target[name];
+						}
+					});
+
+const sarah = new Proxy({"src":"/_astro/sarah.Byn_zzF2.webp","width":315,"height":324,"format":"webp"}, {
+						get(target, name, receiver) {
+							if (name === 'clone') {
+								return structuredClone(target);
+							}
+							if (name === 'fsPath') {
+								return "/Users/admin/Documents/GitHub/projet-co-s2-2025-08_faclink/src/assets/sarah.webp";
+							}
+							
+							return target[name];
+						}
+					});
+
+const manon = new Proxy({"src":"/_astro/manon.IBDWFh6r.webp","width":320,"height":322,"format":"webp"}, {
+						get(target, name, receiver) {
+							if (name === 'clone') {
+								return structuredClone(target);
+							}
+							if (name === 'fsPath') {
+								return "/Users/admin/Documents/GitHub/projet-co-s2-2025-08_faclink/src/assets/manon.webp";
+							}
+							
+							return target[name];
+						}
+					});
+
+const lucas = new Proxy({"src":"/_astro/lucas.B3h9lzY6.webp","width":313,"height":322,"format":"webp"}, {
+						get(target, name, receiver) {
+							if (name === 'clone') {
+								return structuredClone(target);
+							}
+							if (name === 'fsPath') {
+								return "/Users/admin/Documents/GitHub/projet-co-s2-2025-08_faclink/src/assets/lucas.webp";
+							}
+							
+							return target[name];
+						}
+					});
+
+const perdu = new Proxy({"src":"/_astro/perdu.D9Y13y3N.webp","width":590,"height":862,"format":"webp"}, {
+						get(target, name, receiver) {
+							if (name === 'clone') {
+								return structuredClone(target);
+							}
+							if (name === 'fsPath') {
+								return "/Users/admin/Documents/GitHub/projet-co-s2-2025-08_faclink/src/assets/perdu.webp";
+							}
+							
+							return target[name];
+						}
+					});
+
+const courier = new Proxy({"src":"/_astro/courier.Cp_pySpG.webp","width":772,"height":772,"format":"webp"}, {
+						get(target, name, receiver) {
+							if (name === 'clone') {
+								return structuredClone(target);
+							}
+							if (name === 'fsPath') {
+								return "/Users/admin/Documents/GitHub/projet-co-s2-2025-08_faclink/src/assets/courier.webp";
+							}
+							
+							return target[name];
+						}
+					});
+
+const $$Index = createComponent(($$result, $$props, $$slots) => {
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, {}, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<div class="relative bg-(--color-violet) text-white py-16 md:py-24 lg:py-32 flex flex-col items-center justify-center"> <div class="absolute inset-0 overflow-hidden"> <img${addAttribute(landingImage.src, "src")} alt="" class="w-full h-full object-cover opacity-60"> </div> <div class="relative z-10 text-center max-w-2xl px-4"> <h1 class="text-xl md:text-2xl lg:text-3xl font-bold text-[var(--color-orange)] mb-4">Bienvenue sur Fac'Link !</h1> <p class="text-lg md:text-xl font-semibold mb-8" style="font-family: var(--font-Menu);">VOTRE CAMPUS EN UN CLIC, SUR FAC'LINK !</p> <div class="flex flex-col md:flex-row gap-4 w-full md:max-w-md"> <input type="email" placeholder="Ton email universitaire *" class="bg-(--color-violet) text-white rounded-full px-6 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--color-orange)]"> <button class="bg-gradient-to-r from-[var(--color-orange)] to-[var(--color-rose)] hover:from-pink-500 hover:to-orange-500 text-white rounded-full px-8 py-3 font-bold" style="font-family: var(--font-Menu);">Inscrit toi !</button> </div> <p class="text-sm mt-4" style="font-family: var(--font-Menu);">* accès uniquement avec un email universitaire valide</p> </div> <div class="absolute -bottom-8 left-1/2 transform -translate-x-1/2"> <img${addAttribute(fleche.src, "src")} alt="" class="w-fit h-48"> </div> </div> <section class="bg-(--color-violet) text-white py-16 md:py-24 lg:py-32"> <div class="container mx-auto px-4"> <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8" style="font-family: var(--font-Menu);">Qui sommes-nous ?</h2> <p class="text-lg text-center mb-8" style="font-family: var(--font-Menu);">
+Fac'Link, c'est la plateforme qui connecte les étudiants à leur campus. Pensée par des étudiants, pour des étudiants, elle simplifie la vie universitaire :
+</p> <ul class="list-disc list-inside text-lg mb-8 list-none" style="font-family: var(--font-Menu);"> <li>Événements : découvre et participe à la vie du campus.</li> <li>Rencontres : trouve des amis et échange avec eux.</li> <li>Bons plans : accède aux offres et opportunités étudiantes.</li> </ul> <div class="relative bg-white rounded-4xl shadow-lg py-8 px-6 md:py-12 md:px-10 lg:py-8 lg:px-12 text-(--color-violet) border-2 border-[var(--color-orange)]"> <h3 class="text-xl md:text-2xl font-semibold text-left mb-6" style="font-family: var(--font-Menu);">Pourquoi rejoindre Fac'Link ?</h3> <div class="flex items-center"> <div class="w-1/2 pr-6"> <p class="mb-4" style="font-family: var(--font-Menu);">Être étudiant, c'est une expérience unique, mais ça peut aussi être un vrai défi :</p> <ul class="list-disc list-inside" style="font-family: var(--font-Menu);"> <li>Où trouver les meilleurs événements étudiants ?</li> <li>Comment rencontrer du monde sur le campus ?</li> <li>Où dénicher les bons plans et offres réservés aux étudiants ?</li> </ul> </div> <div class="w-1 h-20 bg-gray-300"></div> <div class="w-1/2 pl-6"> <p class="mb-4" style="font-family: var(--font-Menu);">Fac'Link est la plateforme qui simplifie ta vie étudiante :</p> <ul class="list-disc list-inside" style="font-family: var(--font-Menu);"> <li>Accède facilement aux événements de ton campus.</li> <li>Connecte-toi avec d'autres étudiants selon tes centres d'intérêt.</li> <li>Profite de réductions exclusives sur les restaurants, bars et cinémas.</li> </ul> <div class="absolute bottom-[-20px] left-1/2 transform -translate-x-1/2"> <button onclick="window.location.href='/fonctionnalite'" class="bg-[var(--color-rose)] hover:bg-pink-600 text-white rounded-full px-8 py-3 font-bold" style="font-family: var(--font-Menu);">
+Découvrir les fonctionnalités
+</button> </div> </div> </div> </div> <p class="text-xl font-bold text-center mt-24 mb-8" style="font-family: var(--font-Menu);">Un seul outil, des tonnes d'avantages !</p> <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> <div class="rounded-4xl flex items-center bg-white shadow-md"> <div class="p-6"> <h3 class="text-xl font-semibold text-(--color-violet)" style="font-family: var(--font-Menu);">Événements & Agenda</h3> </div> <img${addAttribute(personnes.src, "src")} alt="personnes" class="w-32 h-32 object-contain ml-auto p-4"> </div> <div class="rounded-4xl flex items-center bg-[var(--color-orange)] shadow-md"> <div class="p-6"> <h3 class="text-xl font-semibold text-(--color-violet)" style="font-family: var(--font-Menu);">Mur des Étudiants</h3> </div> <img${addAttribute(ordi.src, "src")} alt="ordi" class="w-32 h-32 object-contain ml-auto p-4"> </div> <div class="rounded-4xl flex items-center bg-[var(--color-rose)] shadow-md"> <div class="p-6"> <h3 class="text-xl font-semibold text-white" style="font-family: var(--font-Menu);">Réductions & Avantages</h3> </div> <img${addAttribute(verifier.src, "src")} alt="verifier" class="w-32 h-32 object-contain ml-auto p-4"> </div> <div class="rounded-4xl flex items-center bg-[var(--color-orange)] shadow-md"> <div class="p-6"> <h3 class="text-xl font-semibold text-(--color-violet)" style="font-family: var(--font-Menu);">Espace BDE</h3> </div> <img${addAttribute(content.src, "src")} alt="content" class="w-32 h-32 object-contain ml-auto p-4"> </div> <div class="rounded-4xl flex items-center bg-[var(--color-rose)] shadow-md"> <div class="p-6"> <h3 class="text-xl font-semibold text-white" style="font-family: var(--font-Menu);">Mise en relation</h3> </div> <img${addAttribute(tape.src, "src")} alt="tape" class="w-32 h-32 object-contain ml-auto p-4"> </div> <div class="flex flex-col gap-4"> <button onclick="window.location.href='/fonctionnalite'" class="bg-[var(--color-orange)] text-white rounded-full px-8 py-3 font-bold" style="font-family: var(--font-Menu);">
+Découvrir les fonctionnalités
+</button> <button onclick="window.location.href='/inscription'" class="bg-[var(--color-rose)] hover:bg-pink-600 text-white rounded-full px-8 py-3 font-bold" style="font-family: var(--font-Menu);">
+Rejoindre Fac'Link maintenant
+</button> </div> </div> </div> </section> <section class="bg-(--color-violet) text-white py-16 md:py-24 lg:py-32"> <div class="container mx-auto px-4"> <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8" style="font-family: var(--font-Menu);">La communauté Fac'Link en parle mieux que nous !</h2> <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> <div class="bg-white rounded-2xl shadow-md p-6 text-center text-(--color-violet)"> <img${addAttribute(sophie.src, "src")} alt="Sophie Martin" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover"> <h3 class="font-semibold" style="font-family: var(--font-Menu);">Sophie Martin</h3> <p class="text-sm mb-2" style="font-family: var(--font-Menu);">Étudiante en communication</p> <p class="text-sm italic" style="font-family: var(--font-Menu);">Grâce à Fac'Link, j'ai pu rencontrer des étudiants d'autres filières et élargir mon réseau !</p> </div> <div class="bg-white rounded-2xl shadow-md p-6 text-center text-(--color-violet)"> <img${addAttribute(amed.src, "src")} alt="Ahmed Diallo" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover"> <h3 class="font-semibold" style="font-family: var(--font-Menu);">Ahmed Diallo</h3> <p class="text-sm mb-2" style="font-family: var(--font-Menu);">Étudiant en ingénierie</p> <p class="text-sm italic" style="font-family: var(--font-Menu);">La plateforme m'aide à mieux organiser mon travail avec des outils collaboratifs super intuitifs.</p> </div> <div class="bg-white rounded-2xl shadow-md p-6 text-center text-(--color-violet)"> <img${addAttribute(lea.src, "src")} alt="Léa Dubois" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover"> <h3 class="font-semibold" style="font-family: var(--font-Menu);">Léa Dubois</h3> <p class="text-sm mb-2" style="font-family: var(--font-Menu);">Étudiante en marketing</p> <p class="text-sm italic" style="font-family: var(--font-Menu);">Fac'Link m'a permis de trouver un stage grâce aux annonces exclusives partagées par les étudiants.</p> </div> <div class="bg-white rounded-2xl shadow-md p-6 text-center text-[var(--color-violet)]"> <img${addAttribute(sarah.src, "src")} alt="Sarah Lefevre" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover"> <h3 class="font-semibold" style="font-family: var(--font-Menu);">Sarah Lefevre</h3> <p class="text-sm mb-2" style="font-family: var(--font-Menu);">Étudiante en économie</p> <p class="text-sm italic" style="font-family: var(--font-Menu);">Le fil d'actualité est top pour rester informé des événements et des opportunités sur le campus !</p> </div> <div class="bg-white rounded-2xl shadow-md p-6 text-center text-(--color-violet)"> <img${addAttribute(manon.src, "src")} alt="Manon Bernard" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover"> <h3 class="font-semibold" style="font-family: var(--font-Menu);">Manon Bernard</h3> <p class="text-sm mb-2" style="font-family: var(--font-Menu);">Étudiante en sciences sociales</p> <p class="text-sm italic" style="font-family: var(--font-Menu);">Je ne rate plus aucun événement important grâce aux rappels et aux notifications personnalisées.</p> </div> <div class="bg-white rounded-2xl shadow-md p-6 text-center text-(--color-violet)"> <img${addAttribute(lucas.src, "src")} alt="Lucas Morel" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover"> <h3 class="font-semibold" style="font-family: var(--font-Menu);">Lucas Morel</h3> <p class="text-sm mb-2" style="font-family: var(--font-Menu);">Étudiant en informatique</p> <p class="text-sm italic" style="font-family: var(--font-Menu);">Une vraie révolution pour les étudiants : entraide, bons plans et opportunités en un seul endroit !</p> </div> </div> </div> </section> <section class="bg-(--color-violet) text-white py-16 lg:py-32"> <div class="container mx-auto px-4 text-center"> <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-8" style="font-family: var(--font-Menu);">Prêt à rejoindre la communauté Fac'Link ?</h2> <div class="grid grid-cols-1 md:grid-cols-3 gap-8"> <div class="bg-[var(--color-orange)] rounded-2xl p-8"> <img${addAttribute(perdu.src, "src")} alt="" class="w-24 h-24 mx-auto mb-4"> <p class="text-lg font-semibold mb-2" style="font-family: var(--font-Menu);">C'est gratuit !</p> <p class="text-sm" style="font-family: var(--font-Menu);">L'accès à Fac'Link est 100% gratuit et réservé uniquement aux étudiants.</p> </div> <div class="bg-[var(--color-rose)] rounded-2xl p-8"> <img${addAttribute(discu.src, "src")} alt="" class="w-24 h-24 mx-auto mb-4"> <p class="text-lg font-semibold mb-2" style="font-family: var(--font-Menu);">Rejoins-nous !</p> <p class="text-sm" style="font-family: var(--font-Menu);">Inscris-toi dès maintenant avec ton email universitaire et découvre tout ce que ton campus a à offrir !</p> </div> <div class="bg-[var(--color-orange)] rounded-2xl p-8"> <img${addAttribute(courier.src, "src")} alt="" class="w-24 h-24 mx-auto mb-4"> <p class="text-lg font-semibold mb-2" style="font-family: var(--font-Menu);">Inscription rapide</p> <p class="text-sm" style="font-family: var(--font-Menu);">Formulaire d'inscription rapide et facile à remplir.</p> </div> </div> <button onclick="window.location.href='/inscription'" class="bg-[var(--color-orange)] hover:bg-pink-600 text-white rounded-full px-8 py-4 mt-8 font-bold" style="font-family: var(--font-Menu);">Rejoindre Fac'Link maintenant</button> </div> </section> <section class="bg-[var(--color-violet)] text-white lg:py-16"> <div class="container mx-auto px-4 text-center"> <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-8" style="font-family: var(--font-Menu);">Notre équipe</h2> <p class="mb-8 italic">Fac'Link est porté par des étudiants du BUT MMI Montbéliard</p> <div class="flex flex-col gap-8 mb-16"> <div class="bg-gradient-to-r from-[var(--color-orange)] to-[var(--color-rose)] rounded-2xl shadow-md p-6 flex items-center text-white w-full"> <img${addAttribute(maelie.src, "src")} alt="Addario Maëlie" class="w-24 h-24 rounded-full object-cover mr-4"> <div> <h3 class="font-semibold text-lg md:text-xl text-left" style="font-family: var(--font-Menu);">Addario Maëlie</h3> <p class="text-sm md:text-md text-left" style="font-family: var(--font-Menu);">BUT MMI 1 - Design & Communication</p> </div> </div> <div class="bg-gradient-to-r from-[var(--color-orange)] to-[var(--color-rose)] rounded-2xl shadow-md p-6 flex items-center text-white w-full"> <div class="flex-1"> <h3 class="font-semibold text-lg md:text-xl text-left" style="font-family: var(--font-Menu);">Frelin Alice</h3> <p class="text-sm md:text-md text-left" style="font-family: var(--font-Menu);">BUT MMI 1 - Communication</p> </div> <img${addAttribute(alice.src, "src")} alt="Frelin Alice" class="w-24 h-24 rounded-full object-cover ml-4"> </div> <div class="bg-gradient-to-r from-[var(--color-orange)] to-[var(--color-rose)] rounded-2xl shadow-md p-6 flex items-center text-white w-full"> <img${addAttribute(mathis.src, "src")} alt="Juillard Mathis" class="w-24 h-24 rounded-full object-cover mr-4"> <div> <h3 class="font-semibold text-lg md:text-xl text-left" style="font-family: var(--font-Menu);">Juillard Mathis</h3> <p class="text-sm md:text-md text-left" style="font-family: var(--font-Menu);">BUT MMI 1 - Communication & Développement</p> </div> </div> </div> </div> </section> ` })}`;
+}, "/Users/admin/Documents/GitHub/projet-co-s2-2025-08_faclink/src/pages/index.astro", void 0);
+
+const $$file = "/Users/admin/Documents/GitHub/projet-co-s2-2025-08_faclink/src/pages/index.astro";
+const $$url = "";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+	__proto__: null,
+	default: $$Index,
+	file: $$file,
+	url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };
