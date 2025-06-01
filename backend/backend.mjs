@@ -1,26 +1,29 @@
-import PocketBase from 'pocketbase' ;
-const pb = new PocketBase("https://pb-faclink.alice-frelin.fr:443") ;
+import PocketBase from 'pocketbase';
 
-export async function registerEtudiant(data) {
+const pb = new PocketBase("https://pb-faclink.alice-frelin.fr:443");
+
+export async function addAccount(account) {
     try {
-        const newUser = await pb.collection('comptes_etudiant').create({
-            email: data.get('email'),
-            password: data.get('mot_de_passe'),
-            passwordConfirm: data.get('mot_de_passe'),
-            name: data.get('name'),
-            campus: data.get('campus'),
-            centre_interet: data.get('centre_interet'),
-        });
+        // Ajouter automatiquement passwordConfirm avec la même valeur que password
+        const accountData = {
+            ...account,
+            passwordConfirm: account.password
+        };
+        
+        const record = await pb.collection('comptes_etudiant').create(accountData);
         return {
             success: true,
-            message: 'Compte créé avec succès. Vous pouvez maintenant vous connecter.',
-            user: newUser
+            message: 'Compte créé avec succès',
+            data: record
         };
     } catch (error) {
-        console.log('Erreur lors de l’inscription :', error);
+        console.log('Une erreur est survenue lors de l\'inscription');
+        console.log('Détails de l\'erreur:', error.response || error);
+        
         return {
             success: false,
-            message: 'Erreur lors de l’inscription. Veuillez vérifier les champs et réessayer.'
+            message: error.response?.message || 'Une erreur est survenue lors de l\'inscription',
+            details: error.response?.data || null
         };
     }
 }
