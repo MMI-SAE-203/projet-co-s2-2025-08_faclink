@@ -1,6 +1,6 @@
-import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead, h as addAttribute } from '../chunks/astro/server_BegMskTl.mjs';
+import { f as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead, h as addAttribute } from '../chunks/astro/server_Dc7gvlnh.mjs';
 import 'kleur/colors';
-import { $ as $$Layout } from '../chunks/Layout_CRt2x6mg.mjs';
+import { $ as $$Layout } from '../chunks/Layout_Djg7MDee.mjs';
 import { p as personnes, d as discu, c as content, m as maelie, a as alice, b as mathis } from '../chunks/discu_kmS2IGrn.mjs';
 import { t as tape } from '../chunks/tape_CgeWMIOi.mjs';
 export { renderers } from '../renderers.mjs';

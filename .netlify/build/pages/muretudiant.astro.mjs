@@ -1,4 +1,4 @@
-import { e as createComponent, r as renderTemplate } from '../chunks/astro/server_BegMskTl.mjs';
+import { f as createComponent, r as renderTemplate } from '../chunks/astro/server_Dc7gvlnh.mjs';
 import 'kleur/colors';
 import 'clsx';
 export { renderers } from '../renderers.mjs';
