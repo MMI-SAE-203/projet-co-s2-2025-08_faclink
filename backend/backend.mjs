@@ -27,3 +27,19 @@ export async function addAccount(account) {
         };
     }
 }
+
+export async function getEvenements() {
+    try {
+        let data = await pb.collection('evenement').getFullList({
+            sort: '-created',
+        });
+        data = data.map((evenement) => {
+            evenement.img = pb.files.getURL(evenement, evenement.Image);
+            return evenement;
+        });
+        return data;
+    } catch (error) {
+        console.log('Une erreur est survenue en lisant la liste des maisons', error);
+        return null;
+    }
+}
