@@ -1,54 +1,97 @@
 ---
 import Header from '../../src/components/Header.astro';
 import Footer from '../../src/components/Footer.astro';
+import instagramIcon from '../assets/instagram.svg';
+import tiktokIcon from '../assets/tiktok.svg';
+import pinterestIcon from '../assets/pinterest.svg';
 
 // Récupérer les paramètres d'URL pour afficher les messages
 const errorMessage = Astro.url.searchParams.get('error');
 const successMessage = Astro.url.searchParams.get('success') ? 'Compte créé avec succès !' : null;
 ---
 
-<Header/>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - Fac'Link</title>
+    </head>
+<body class="flex flex-col min-h-screen bg-[var(--color-violet)] text-white font-[var(--font-Menu)]">
+    <Header/>
 
-<h1>Créer un compte</h1>
+    <main class="flex-grow flex flex-col items-center justify-center p-4">
+        <div class="container mx-auto px-4 w-full max-w-md text-center">
+            <h2 class="text-xl md:text-2xl font-bold mb-4">Déjà un compte ?</h2>
+            <a href="/connexion" class="inline-block bg-gradient-to-r from-[var(--color-orange)] to-[var(--color-rose)] hover:from-pink-500 hover:to-orange-500 text-white rounded-full px-8 py-3 font-bold mb-8 transition-colors duration-300">
+                Se connecter
+            </a>
 
-{errorMessage && (
-    <div style="color: red; background: #ffebee; padding: 10px; margin: 10px 0; border-radius: 4px;">
-        Erreur: {errorMessage}
-    </div>
-)}
+            <div class="w-full h-px bg-white opacity-25 my-8"></div>
 
-{successMessage && (
-    <div style="color: green; background: #e8f5e8; padding: 10px; margin: 10px 0; border-radius: 4px;">
-        {successMessage}
-    </div>
-)}
+            <h1 class="text-xl md:text-2xl font-bold text-white mb-6">Créé ton compte Fac'Link !</h1>
 
-<form action="/api/inscription" method="POST">
-    <div>
-        <label for="name">Nom:</label>
-        <input type="text" id="name" name="name" required>
-    </div>
-    <br>
-    
-    <div>
-        <label for="firstname">Prénom:</label>
-        <input type="text" id="firstname" name="firstname" required>
-    </div>
-    <br>
-    
-    <div>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-    </div>
-    <br>
-    
-    <div>
-        <label for="password">Mot de passe:</label>
-        <input type="password" id="password" name="password" required>
-    </div>
-    <br>
-    
-    <button type="submit">S'inscrire</button>
-</form>
+            {errorMessage && (
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+                    <strong class="font-bold">Erreur !</strong>
+                    <span class="block sm:inline"> {errorMessage}</span>
+                </div>
+            )}
 
-<Footer/>
+            {successMessage && (
+                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
+                    <strong class="font-bold">Succès !</strong>
+                    <span class="block sm:inline"> {successMessage}</span>
+                </div>
+            )}
+
+            <form action="/api/inscription" method="POST" class="space-y-4">
+                <div>
+                    <input type="text" id="name" name="name" placeholder="Entrez votre Nom" required
+                           class="bg-white text-[var(--color-violet)] rounded-full py-3 px-6 w-full border-none shadow-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--color-orange)]">
+                </div>
+                
+                <div>
+                    <input type="text" id="firstname" name="firstname" placeholder="Entrez votre Prénom" required
+                           class="bg-white text-[var(--color-violet)] rounded-full py-3 px-6 w-full border-none shadow-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--color-orange)]">
+                </div>
+                
+                <div>
+                    <input type="email" id="email" name="email" placeholder="Entrez votre Email universitaire" required
+                           class="bg-white text-[var(--color-violet)] rounded-full py-3 px-6 w-full border-none shadow-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--color-orange)]">
+                </div>
+                
+                <div>
+                    <input type="password" id="password" name="password" placeholder="Entrez votre Mot de passe" required
+                           class="bg-white text-[var(--color-violet)] rounded-full py-3 px-6 w-full border-none shadow-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--color-orange)]">
+                </div>
+                
+                <div class="flex items-center justify-center pt-4">
+                    <input type="checkbox" id="accept-conditions" name="accept-conditions" required
+                           class="mr-2 h-4 w-4 border-gray-300 rounded focus:ring-[var(--color-orange)] accent-[var(--color-orange)]">
+                    <label for="accept-conditions" class="text-sm">
+                        Accepter les <a href="/conditions-generales" class="text-[var(--color-orange)] hover:underline">Conditions d'utilisation</a> | <a href="/politique-confidentialite" class="text-[var(--color-orange)] hover:underline">Politique de confidentialité</a>
+                    </label>
+                </div>
+
+                <button type="submit" class="w-full bg-gradient-to-r from-[var(--color-orange)] to-[var(--color-rose)] hover:from-pink-500 hover:to-orange-500 text-white rounded-full px-8 py-3 font-bold mt-6 transition-colors duration-300">
+                    S'inscrire
+                </button>
+            </form>
+
+            <div class="flex justify-center space-x-6 mt-8">
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                    <img src={instagramIcon.src} alt="Instagram" class="w-8 h-8 filter brightness-0 invert" />
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                    <img src={tiktokIcon.src} alt="TikTok" class="w-8 h-8 filter brightness-0 invert" />
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                    <img src={pinterestIcon.src} alt="Pinterest" class="w-8 h-8 filter brightness-0 invert" />
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <Footer/>
+</body>
+</html>
