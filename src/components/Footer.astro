@@ -1,5 +1,9 @@
 ---
 const year = new Date().getFullYear();
+import instagram from '../assets/instagram.svg'
+import tiktok from '../assets/tiktok.svg'
+import pinterest from '../assets/pinterest.svg'
+import logo from '../assets/logo.svg'
 ---
 
 <footer class="relative overflow-hidden bg-(--color-orange) p-6">
@@ -9,17 +13,16 @@ const year = new Date().getFullYear();
       <h3 class="mb-12 text-4xl font-bold">Bienvenue sur Fac'Link !</h3>
 
       <div class="mb-10 flex justify-center">
-       <img src="/src/assets/logo.svg" alt="" class="h-40" />
+       <img src={logo.src} alt="" class="h-40" />
       </div>
 
       <h4 class="mb-8 text-3xl font-bold">Contactez-Nous :</h4>
 
     <div class="flex justify-center space-x-4 mb-8">
-        <img src="/src/assets/instagram.svg" alt="Instagram" class="h-12 w-12" />
-        <img src="/src/assets/tiktok.svg" alt="TikTok" class="h-12 w-12" />
-        <img src="/src/assets/pinterest.svg" alt="Facebook" class="h-12 w-12" />
-        
-    </div>
+      <img src={instagram.src} alt="instagram" class="h-12 w-12" />
+      <img src={tiktok.src} alt="TikTok" class="h-12 w-12" />
+     <img src={pinterest.src} alt="Pinterest" class="h-12 w-12" />
+</div>
 
       <div class="mb-4 text-white">
         <p class="text-lg">Nos réseaux: faclink_off</p>
@@ -30,8 +33,8 @@ const year = new Date().getFullYear();
 
     <div class="text-sm text-white/80 text-left">
       <p>© {year} Fac'Link - projet réalisé en {year} dans le cadre d'un exercice pédagogique au département MMi de Montbéliard</p>
+      <p class="mt-2"><a href="/aspectlegaux" class="underline hover:text-white">Aspects légaux</a></p>
     </div>
     </div>
   </div>
 </footer>
-
