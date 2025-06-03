@@ -1,8 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PocketBase from 'pocketbase';
+const pb = new PocketBase("https://pb-faclink.alice-frelin.fr:443");
+const rawCookies = Astro.request.headers.get("cookie") || "";
+pb.authStore.loadFromCookie(rawCookies);
+
+const isLoggedIn = pb.authStore.isValid;
+const user = pb.authStore.model;
 ---
 
-<Layout title="Aspects Légaux">
+<Layout isLoggedIn={isLoggedIn} user={user}>
   <section class="bg-gradient-to-b from-[var(--color-violet)] to-orange-400 min-h-screen py-8 ">
     <div class="container mx-auto px-4 text-center">
       <div class="bg-white rounded-md shadow-md py-4">
