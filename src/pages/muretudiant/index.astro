@@ -1,4 +1,16 @@
 ---
+import Layout from "../../layouts/Layout.astro";
 export const prerender = false;
+import PocketBase from 'pocketbase';
+
+// 🔐 Auth PocketBase
+const pb = new PocketBase("https://pb-faclink.alice-frelin.fr:443");
+const rawCookies = Astro.request.headers.get("cookie") || "";
+pb.authStore.loadFromCookie(rawCookies);
+const isLoggedIn = pb.authStore.isValid;
+const user = pb.authStore.model;
 ---
+<Layout isLoggedIn={isLoggedIn} user={user}>
+  <h1>Muretudiant</h1>
+  <p>Bienvenue sur la page Muretudiant !</p>
 <a href="../evenements/">page evenements</a>

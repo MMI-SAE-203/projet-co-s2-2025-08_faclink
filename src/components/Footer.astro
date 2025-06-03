@@ -6,35 +6,52 @@ import pinterest from '../assets/pinterest.svg'
 import logo from '../assets/logo.svg'
 ---
 
-<footer class="relative overflow-hidden bg-(--color-orange) p-6">
-  <div class="rounded-3xl bg-pink-500 p-2">
-    <div class="rounded-3xl bg-(--color-violet) p-8 text-center text-(--color-orange)">
-      <h2 class="mb-4 text-4xl font-bold">Ici, c'est 100% étudiant.</h2>
-      <h3 class="mb-12 text-4xl font-bold">Bienvenue sur Fac'Link !</h3>
+<footer class="relative overflow-hidden bg-orange-500 px-4 py-8 sm:px-8">
+  <div class="rounded-3xl bg-pink-500 p-1 sm:p-2">
+    <div class="rounded-3xl bg-[#490548] p-6 sm:p-10 text-center text-white">
+      <h2 class="mb-2 text-2xl sm:text-4xl font-bold text-orange-300">Ici, c’est 100% étudiant.</h2>
+      <h3 class="mb-6 text-2xl sm:text-4xl font-bold text-orange-300">Bienvenue sur Fac'Link !</h3>
 
-      <div class="mb-10 flex justify-center">
-       <img src={logo.src} alt="" class="h-40" />
+      <div class="mb-6 flex justify-center">
+        <img src={logo.src} alt="Fac'Link logo" class="h-24 sm:h-36" />
       </div>
 
-      <h4 class="mb-8 text-3xl font-bold">Contactez-Nous :</h4>
+      <h4 class="mb-4 text-xl sm:text-2xl font-bold text-pink-400">Contactez - Nous :</h4>
 
-    <div class="flex justify-center space-x-4 mb-8">
-      <img src={instagram.src} alt="instagram" class="h-12 w-12" />
-      <img src={tiktok.src} alt="TikTok" class="h-12 w-12" />
-     <img src={pinterest.src} alt="Pinterest" class="h-12 w-12" />
-</div>
-
-      <div class="mb-4 text-white">
-        <p class="text-lg">Nos réseaux: faclink_off</p>
-        <p class="text-lg">Email : faclink.contact@gmail.com</p>
-        <p class="text-lg">Téléphone : +33 1 28 48 68 88</p>
-        <p class="text-lg">Adresse : 4 Pl. Lucien Tharradin, 25200 Montbéliard</p>
+      <div class="mb-6 flex justify-center space-x-6">
+        <img src={instagram.src} alt="Instagram" class="h-10 w-10 sm:h-12 sm:w-12" />
+        <img src={tiktok.src} alt="TikTok" class="h-10 w-10 sm:h-12 sm:w-12" />
+        <img src={pinterest.src} alt="Pinterest" class="h-10 w-10 sm:h-12 sm:w-12" />
       </div>
 
-    <div class="text-sm text-white/80 text-left">
-      <p>© {year} Fac'Link - projet réalisé en {year} dans le cadre d'un exercice pédagogique au département MMi de Montbéliard</p>
-      <p class="mt-2"><a href="/aspectlegaux" class="underline hover:text-white">Aspects légaux</a></p>
-    </div>
+      <div class="mb-8 text-sm sm:text-lg text-white">
+        <p>Nos réseaux: faclink_off</p>
+        <p>Email : faclink.contact@gmail.com</p>
+        <p>Téléphone : +33 1 28 48 68 88</p>
+        <p>Adresse : 4 Pl. Lucien Tharradin, 25200 Montbéliard</p>
+      </div>
+
+    
+      <div class="mx-auto max-w-md rounded-2xl border-2 border-orange-400 bg-[#3A043B] p-4 sm:p-6 mb-8">
+        <input
+          type="email"
+          placeholder="Ton email universitaire*"
+          class="w-full rounded-md p-3 text-white bg-transparent border border-white/30 placeholder:text-white/70"
+        />
+        <a href="/inscription">
+          <button class="mt-4 w-full rounded-full bg-gradient-to-r from-orange-400 to-pink-400 px-4 py-3 text-white font-semibold">
+        Inscris-toi !
+          </button>
+        </a>
+        <p class="mt-2 text-xs text-white/70">
+          *accès uniquement avec un email universitaire valide
+        </p>
+      </div>
+
+      <div class="text-xs text-white/80">
+        <p>© {year} Fac'Link – projet réalisé en {year} dans le cadre d’un exercice pédagogique au département MMi de Montbéliard</p>
+        <p class="mt-1"><a href="/aspectlegaux" class="underline hover:text-white">Aspects légaux</a></p>
+      </div>
     </div>
   </div>
 </footer>
