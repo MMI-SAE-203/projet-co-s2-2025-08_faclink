@@ -4,7 +4,7 @@ import logo from '../assets/logo.svg';
 ---
 
 <header class="top-0 left-0 w-full sticky flex items-center justify-between px-4 md:px-8 lg:px-16 h-20 bg-[#470050] text-white z-30">
-  <a href={isLoggedIn ? '/muretudiant' : '/'} class="flex items-center gap-2">
+<a href={isLoggedIn ? '/muretudiant' : '/'} class="flex items-center gap-2">
     <img src={logo.src} alt="Logo FacLink" class="w-auto h-12" />
   </a>
 
@@ -19,6 +19,7 @@ import logo from '../assets/logo.svg';
     <span class="group-aria-expanded:-translate-y-[5px] group-aria-expanded:-rotate-45"></span>
   </button>
 
+
   <nav
     id="menu"
     class="fixed inset-0 z-40 flex flex-col justify-between px-6 py-12 mt-20 overflow-y-auto bg-[var(--color-violet)] transition-all duration-300
@@ -27,6 +28,7 @@ import logo from '../assets/logo.svg';
     aria-hidden="true"
   >
     <ul class="flex flex-col gap-6 mb-8 lg:flex-row lg:mb-0 lg:mr-10 items-center">
+
       {isLoggedIn ? (
         <>
           <li><a href="/parametres" class="block hover:text-pink-400 transition">Paramètres</a></li>
@@ -34,7 +36,7 @@ import logo from '../assets/logo.svg';
           <li><a href="/apropos" class="block hover:text-pink-400 transition">À propos</a></li>
           <li><a href="/aspectlegaux" class="block hover:text-pink-400 transition">Aspects légaux</a></li>
           <li class="lg:hidden">
-            <a href="/deconnexion" class="block p-2 rounded-full bg-gradient-to-r from-orange-400 to-pink-500 text-white text-center w-32 mt-4">Déconnexion</a>
+            <a href="/" class="block p-2 rounded-full bg-gradient-to-r from-orange-400 to-pink-500 text-white text-center w-32 mt-4">Déconnexion</a>
           </li>
         </>
       ) : (
@@ -54,9 +56,10 @@ import logo from '../assets/logo.svg';
     </ul>
   </nav>
 
+
   <div class="hidden lg:flex items-center space-x-4">
     {isLoggedIn ? (
-      <a href="/deconnexion" class="bg-gradient-to-r from-orange-400 to-pink-500 text-white rounded-full px-6 py-2 transition">Déconnexion</a>
+      <a href="/" class="bg-gradient-to-r from-orange-400 to-pink-500 text-white rounded-full px-6 py-2 transition">Déconnexion</a>
     ) : (
       <>
         <a href="/inscription" class="bg-[#E45D82] hover:bg-pink-400 text-white rounded-full px-6 py-2 transition">Inscrit toi</a>
@@ -65,6 +68,7 @@ import logo from '../assets/logo.svg';
     )}
   </div>
 </header>
+
 
 <script>
   const toggle = document.querySelector("#menu-btn");
