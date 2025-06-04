@@ -9,7 +9,9 @@ export async function post({ request }) {
 
   const { contenu, receveur } = await request.json();
 
-  console.log('🔻 Message reçu :', { contenu, receveur, envoyeur: pb.authStore.model.id });
+  if (!contenu || !receveur) {
+    return new Response('Champs manquants', { status: 400 });
+  }
 
   const message = await pb.collection('message').create({
     contenu,
