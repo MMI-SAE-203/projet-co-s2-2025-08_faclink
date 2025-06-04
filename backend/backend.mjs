@@ -51,6 +51,8 @@ export async function getPublications() {
             expand: 'posteurEtudiant'
         });
 
+        console.log('📦 Publications récupérées :', publications.length);
+
         return publications.map(pub => {
             const imageUrl = pub.image
                 ? pb.files.getUrl(pub, pub.image)
@@ -69,7 +71,7 @@ export async function getPublications() {
             };
         });
     } catch (error) {
-        console.error('Erreur lors de la récupération des publications :', error);
+        console.error('❌ Erreur lors de la récupération des publications :', error);
         return [];
     }
 }
