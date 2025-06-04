@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import PocketBase from 'pocketbase';
+import MobileNav from '../components/Navmobile.astro'; 
 
 const { isLoggedIn, user } = Astro.props;
 ---
@@ -16,9 +16,16 @@ const { isLoggedIn, user } = Astro.props;
     <title>Fac'Link</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
   </head>
-  <body>
+  <body class="relative">
     <Header isLoggedIn={isLoggedIn} user={user} />
     <slot />
+
     { !isLoggedIn && <Footer /> }
+
+    { isLoggedIn && (
+      <div class="block md:hidden"> {/* ✅ affiché uniquement en mobile */}
+        <MobileNav />
+      </div>
+    )}
   </body>
 </html>

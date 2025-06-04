@@ -7,8 +7,13 @@ export async function GET({ cookies, redirect }) {
   pb.authStore.clear();
 
   // Supprimer le cookie côté navigateur
-  cookies.delete('pb_auth', { path: '/' });
+  cookies.delete('pb_auth', {
+    path: '/',
+    httpOnly: true,
+    secure: true,
+    sameSite: 'Lax'
+  });
 
-  // Redirection vers la page d’accueil déconnectée
-  return redirect('/');
+  // Redirection propre
+  return redirect('/?logout=true');
 }

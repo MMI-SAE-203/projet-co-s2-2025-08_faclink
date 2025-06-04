@@ -5,8 +5,14 @@ const pb = new PocketBase("https://pb-faclink.alice-frelin.fr:443");
 const rawCookies = Astro.request.headers.get("cookie") || "";
 pb.authStore.loadFromCookie(rawCookies);
 
-const isLoggedIn = pb.authStore.isValid;
-const user = pb.authStore.model;
+let isLoggedIn = false;
+let user = null;
+
+if (pb.authStore.isValid && pb.authStore.model && pb.authStore.model.id) {
+  isLoggedIn = true;
+  user = pb.authStore.model;
+}
+
 ---
 
 <Layout isLoggedIn={isLoggedIn} user={user}>

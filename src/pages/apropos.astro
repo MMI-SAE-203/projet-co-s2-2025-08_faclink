@@ -16,8 +16,9 @@ const pb = new PocketBase("https://pb-faclink.alice-frelin.fr:443");
 const rawCookies = Astro.request.headers.get("cookie") || "";
 pb.authStore.loadFromCookie(rawCookies);
 
-const isLoggedIn = pb.authStore.isValid;
+const isLoggedIn = pb.authStore.isValid && pb.authStore.model !== null;
 const user = pb.authStore.model;
+
 ---
 <Layout isLoggedIn={isLoggedIn} user={user}>
 <section class="bg-gradient-to-b from-[var(--color-violet)] to-orange-400 text-white min-h-screen bg-white py-8">

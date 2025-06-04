@@ -1,0 +1,25 @@
+---
+const { active } = Astro.props;
+import home from '../assets/home.svg';
+import agenda from '../assets/agenda.svg';
+import amis from '../assets/amis.svg';
+import message from '../assets/message.svg';
+import profil from '../assets/profil.svg';
+---
+
+<nav class="fixed bottom-0 left-0 w-full bg-[var(--color-violet)] flex justify-around items-center h-16 z-50 border-t border-white border-opacity-10">
+  <a href="/muretudiant" class="flex flex-col items-center justify-center text-white">
+    <img src={home.src} alt="Accueil" class="w-6 h-6" />
+  </a>
+  <a href="/evenements" class="flex flex-col items-center justify-center text-white">
+    <img src={agenda.src} alt="Agenda" class="w-6 h-6" />
+  </a>
+  <a href="/amis" class="flex flex-col items-center justify-center text-white">
+    <img src={amis.src} alt="Amis" class="w-6 h-6" />
+  </a>
+  <a href="/discussions" class="flex flex-col items-center justify-center text-white">
+    <img src={message.src} alt="Messages" class="w-6 h-6" />
+  </a>
+  <a href="/compte" class="flex flex-col items-center justify-center text-white">
+    <img src={profil.src} alt="Profil" class="w-6 h-6" />
+</nav>
