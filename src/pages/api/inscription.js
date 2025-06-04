@@ -2,61 +2,56 @@ export const prerender = false;
 
 export async function POST({ request }) {
     try {
-        const body = await request.text();
-        if (!body) return new Response('Body vide', { status: 400 });
-
-        const params = new URLSearchParams(body);
-        const userData = {
-            name: params.get('name'),
-            firstname: params.get('firstname'),
-            email: params.get('email'),
-            password: params.get('password')
-        };
-
-        if (!userData.name || !userData.email || !userData.password) {
-            return new Response('Données manquantes', { status: 400 });
+        const formData = await request.formData();
+        
+        // Créer un nouvel objet FormData pour PocketBase
+        const pbFormData = new FormData();
+        
+        // Ajouter tous les champs un par un
+        pbFormData.append('nom', formData.get('nom'));
+        pbFormData.append('description', formData.get('description'));
+        pbFormData.append('horaire', formData.get('horaire'));
+        pbFormData.append('lieu', formData.get('lieu'));
+        pbFormData.append('organisateur', formData.get('organisateur'));
+        pbFormData.append('Participants_max', formData.get('Participants_max'));
+        pbFormData.append('prix', formData.get('prix'));
+        pbFormData.append('snippet', formData.get('snippet'));
+        pbFormData.append('categorie', formData.get('categorie'));
+        pbFormData.append('inscription', formData.get('inscription'));
+        
+        // Ajouter le fichier image
+        const imageFile = formData.get('image');
+        if (imageFile && imageFile.size > 0) {
+            pbFormData.append('Image', imageFile); // Attention à la casse !
         }
+
+        console.log('[API] Données préparées pour PocketBase');
 
         const { default: PocketBase } = await import('pocketbase');
         const pb = new PocketBase("https://pb-faclink.alice-frelin.fr:443");
 
-        // Création du compte
-        await pb.collection('comptes_etudiant').create({
-            ...userData,
-            passwordConfirm: userData.password
+        const record = await pb.collection('evenement').create(pbFormData);
+
+        console.log('[API] Événement créé:', record.id);
+
+        return new Response(JSON.stringify({
+            success: true,
+            message: 'Événement créé avec succès',
+            id: record.id
+        }), {
+            status: 200,
+            headers: { 'Content-Type': 'application/json' }
         });
 
-        // ✅ Authentifier automatiquement l'utilisateur
-        await pb.collection('comptes_etudiant').authWithPassword(userData.email, userData.password);
-
-        // ✅ Générer le cookie d'authentification
-        const cookie = pb.authStore.exportToCookie({ httpOnly: false }); // httpOnly=false si on veut aussi l'utiliser côté JS
-
-        // ✅ Redirection + header Set-Cookie
-       return new Response(`
-  <html>
-    <head><title>Inscription réussie</title></head>
-    <body>
-      <h1>Compte créé avec succès !</h1>
-      <p>Redirection...</p>
-      <script>
-        setTimeout(() => {
-          // Rechargement "propre" pour que le cookie pb_auth soit pris en compte
-          window.location.href = '/muretudiant';
-        }, 500);
-      </script>
-    </body>
-  </html>
-`, {
-  status: 200,
-  headers: {
-    'Set-Cookie': pb.authStore.exportToCookie({ httpOnly: false }),
-    'Content-Type': 'text/html'
-  }
-});
-
-
-    } catch (err) {
-        return new Response('Erreur : ' + err.message, { status: 500 });
+    } catch (error) {
+        console.error('[ERREUR PocketBase]', error);
+        return new Response(JSON.stringify({
+            success: false,
+            message: 'Erreur lors de la création',
+            details: error?.response || error.message
+        }), {
+            status: 500,
+            headers: { 'Content-Type': 'application/json' }
+        });
     }
 }
