@@ -1,73 +1,65 @@
 export const prerender = false;
 
-const validDomains = [
-  "sorbonne-universite.fr", "etu.unistra.fr", "universite-paris-saclay.fr",
-  "etu.u-paris.fr", "etu.u-bordeaux.fr", "etu.univ-grenoble-alpes.fr",
-  "etu.psl.eu", "etu.univ-lille.fr", "etu.univ-cotedazur.fr",
-  "etu.univ-rennes1.fr", "etu.univ-ubs.fr", "etu.univ-nantes.fr",
-  "etu.univ-angers.fr", "etu.unicaen.fr", "etu.univ-rouen.fr",
-  "etu.unilim.fr", "etu.univ-lr.fr", "etu.ut-capitole.fr",
-  "etu.umontpellier.fr", "etu.uca.fr", "etu.univ-amu.fr",
-  "edu.univ-fcomte.fr", "etu.u-bourgogne.fr", "etu.univ-orleans.fr",
-  "etu.univ-tours.fr", "etu.univ-corse.fr"
-];
-
-function isValidUniversityEmail(email) {
-  const domain = email.split("@")[1];
-  return validDomains.includes(domain);
-}
-
 export async function POST({ request }) {
   try {
-    const formData = await request.formData();
-    const email = formData.get("email");
-    const password = formData.get("password");
-    const name = formData.get("name");
-    const firstname = formData.get("firstname");
+    const body = await request.text();
+    if (!body) return new Response("Body vide", { status: 400 });
 
-    if (!email || !password || !name || !firstname) {
-      throw new Error("Tous les champs sont obligatoires.");
-    }
+    const params = new URLSearchParams(body);
+    const userData = {
+      name: params.get("name"),
+      firstname: params.get("firstname"),
+      email: params.get("email"),
+      password: params.get("password"),
+    };
 
-    if (!isValidUniversityEmail(email)) {
-      throw new Error("Seules les adresses universitaires sont autorisées.");
+    if (!userData.name || !userData.email || !userData.password) {
+      return new Response("Données manquantes", { status: 400 });
     }
 
     const { default: PocketBase } = await import("pocketbase");
     const pb = new PocketBase("https://pb-faclink.alice-frelin.fr:443");
 
+    // Création du compte
     await pb.collection("comptes_etudiant").create({
-      email,
-      password,
-      name,
-      firstname,
-      centre_interet: [] // obligatoire si ce champ est requis dans PocketBase
+      ...userData,
+      passwordConfirm: userData.password,
     });
 
-    return new Response(null, {
-      status: 302,
-      headers: {
-        Location: "/connexion?success=1"
+    // ✅ Authentifier automatiquement l'utilisateur
+    await pb
+      .collection("comptes_etudiant")
+      .authWithPassword(userData.email, userData.password);
+
+    // ✅ Générer le cookie d'authentification
+    const cookie = pb.authStore.exportToCookie({ httpOnly: false }); // httpOnly=false si on veut aussi l'utiliser côté JS
+
+    // ✅ Redirection + header Set-Cookie
+    return new Response(
+      `
+  <html>
+    <head><title>Inscription réussie</title></head>
+    <body>
+      <h1>Compte créé avec succès !</h1>
+      <p>Redirection...</p>
+      <script>
+        setTimeout(() => {
+          // Rechargement "propre" pour que le cookie pb_auth soit pris en compte
+          window.location.href = '/muretudiant';
+        }, 500);
+      </script>
+    </body>
+  </html>
+`,
+      {
+        status: 200,
+        headers: {
+          "Set-Cookie": pb.authStore.exportToCookie({ httpOnly: false }),
+          "Content-Type": "text/html",
+        },
       }
-    });
-
-  } catch (error) {
-    console.error("[ERREUR inscription]", error);
-
-    let message = "Erreur lors de l'inscription";
-
-    if (error?.response?.data) {
-      const firstError = Object.values(error.response.data)[0];
-      message = firstError?.message || message;
-    } else if (error.message) {
-      message = error.message;
-    }
-
-    return new Response(null, {
-      status: 302,
-      headers: {
-        Location: "/inscription?error=" + encodeURIComponent(message)
-      }
-    });
+    );
+  } catch (err) {
+    return new Response("Erreur : " + err.message, { status: 500 });
   }
 }
