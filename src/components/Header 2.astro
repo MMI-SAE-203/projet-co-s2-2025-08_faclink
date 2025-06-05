@@ -1,0 +1,77 @@
+---
+const currentPath = Astro.url.pathname;
+import logo from '../assets/logo.svg';
+---
+
+<header class="top-0 left-0 w-full sticky flex items-center justify-between px-4 md:px-8 lg:px-16 h-20 bg-[#470050] text-white z-30">
+  <a href="/" class="flex items-center gap-2">
+    <img src={logo.src} alt="Logo FacLink" class="w-auto h-12" />
+  </a>
+  
+  <button
+    id="menu-btn"
+    class="group relative z-50 flex h-3 w-6 flex-col justify-between lg:hidden *:block *:ease *:h-0.5 *:w-full *:transform *:rounded-full *:bg-white *:transition *:duration-300"
+    aria-label="Menu"
+    aria-controls="menu"
+    aria-expanded="false"
+  >
+    <span class="group-aria-expanded:translate-y-[5px] group-aria-expanded:rotate-45"></span>
+    <span class="group-aria-expanded:-translate-y-[5px] group-aria-expanded:-rotate-45"></span>
+  </button>
+  
+  <nav
+    id="menu"
+    class="fixed inset-0 z-40 flex flex-col justify-between px-6 py-12 mt-20 overflow-y-auto bg-[var(--color-violet)] transition-all duration-300 lg:static lg:flex-row lg:items-center lg:justify-between lg:mt-0 lg:bg-transparent lg:py-0 lg:px-0 lg:overflow-visible lg:flex lg:w-auto
+    opacity-0 invisible lg:opacity-100 lg:visible"
+    aria-hidden="true"
+  >
+    <ul class="flex flex-col gap-6 mb-8 lg:flex-row lg:mb-0 lg:mr-10 items-center">
+      <li>
+        <a class="block hover:text-pink-400 transition" href="/apropos">À propos</a>
+      </li>
+      <li>
+        <a class="block hover:text-pink-400 transition" href="/fonctionnalite">Fonctionnalités</a>
+      </li>
+      <li>
+        <a class="block hover:text-pink-400 transition" href="/assistance">Assistance</a>
+      </li>
+      <li>
+        <a class="block hover:text-pink-400 transition" href="/contact">Contactez-nous</a>
+      </li>
+      <li class="lg:hidden">
+        <a href="/inscription" class="block p-2 rounded-full bg-[#E45D82] hover:bg-pink-400 text-white text-center w-32 mt-4">Inscrit toi</a>
+      </li>
+      <li class="lg:hidden">
+        <a href="/connexion" class="block p-2 rounded-full bg-[#F79547] hover:bg-orange-400 text-white text-center w-32 mt-2">Connexion</a>
+      </li>
+    </ul>
+  </nav>
+  
+  <div class="hidden lg:flex items-center space-x-4">
+    <a href="/inscription" class="bg-(--color-rose) hover:bg-pink-400 text-white rounded-full px-6 py-2 transition">Inscrit toi</a>
+    <a href="/connexion" class="bg-(--color-orange) hover:bg-orange-400 text-white rounded-full px-6 py-2 transition">Connexion</a>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector("#menu-btn");
+  const nav = document.querySelector("#menu");
+  const page = document.body;
+
+  if (toggle && nav) {
+    toggle.addEventListener("click", () => {
+      const isOpen = toggle.getAttribute("aria-expanded") === "true";
+      
+      toggle.setAttribute("aria-expanded", String(!isOpen));
+      nav.setAttribute("aria-hidden", String(isOpen));
+
+      if (isOpen) {
+        nav.classList.add("opacity-0", "invisible");
+        page.classList.remove("overflow-hidden");
+      } else {
+        nav.classList.remove("opacity-0", "invisible");
+        page.classList.add("overflow-hidden");
+      }
+    });
+  }
+</script>
