@@ -43,3 +43,35 @@ export async function getEvenements() {
         return null;
     }
 }
+
+export async function getPublications() {
+    try {
+        const publications = await pb.collection('publication').getFullList({
+            sort: '-created',
+            expand: 'posteurEtudiant'
+        });
+
+        console.log('📦 Publications récupérées :', publications.length);
+
+        return publications.map(pub => {
+            const imageUrl = pub.image
+                ? pb.files.getUrl(pub, pub.image)
+                : null;
+
+            return {
+                id: pub.id,
+                message: pub.message,
+                legende: pub.legende,
+                created: pub.created,
+                imageUrl,
+                auteur: pub.expand?.posteurEtudiant?.name || 'Anonyme',
+                avatar: pub.expand?.posteurEtudiant?.avatar
+                    ? pb.files.getUrl(pub.expand.posteurEtudiant, pub.expand.posteurEtudiant.avatar)
+                    : '/default-avatar.png'
+            };
+        });
+    } catch (error) {
+        console.error('❌ Erreur lors de la récupération des publications :', error);
+        return [];
+    }
+}
