@@ -1,98 +1,81 @@
 ---
-import Header from '../../../src/components/Header.astro';
-import Footer from '../../../src/components/Footer.astro';
+import Layout from "../../layouts/Layout.astro";
 ---
 
-<Header />
+<Layout title="Créer un événement - Fac'Link">
+  <main class="min-h-screen flex flex-col items-center justify-center p-4 bg-gradient-to-b from-[#470050] via-[#8B1A61] to-[#FF7A5C] text-white">
+    <div class="w-full max-w-md text-center px-4">
+      <h1 class="text-2xl font-bold mb-6">Créer un événement</h1>
 
-<h1>Créer un événement</h1>
+      <form id="event-form" enctype="multipart/form-data" class="space-y-4 text-black">
+        <input type="text" name="nom" placeholder="Nom de l’événement" required
+          class="w-full px-4 py-3 rounded-xl bg-white bg-opacity-90 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#FF7A5C]" />
 
-<form id="event-form" enctype="multipart/form-data">
-    <label>Nom :
-        <input type="text" name="nom" required />
-    </label><br />
+        <input type="datetime-local" name="horaire" required
+          class="w-full px-4 py-3 rounded-xl bg-white bg-opacity-90 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#FF7A5C]" />
 
-    <label>Description :
-        <textarea name="description" required></textarea>
-    </label><br />
+        <input type="text" name="lieu" placeholder="Lieu" required
+          class="w-full px-4 py-3 rounded-xl bg-white bg-opacity-90 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#FF7A5C]" />
 
-    <label>Horaire :
-        <input type="datetime-local" name="horaire" required />
-    </label><br />
+        <input type="text" name="prix" placeholder="Prix" required
+          class="w-full px-4 py-3 rounded-xl bg-white bg-opacity-90 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#FF7A5C]" />
 
-    <label>Lieu :
-        <input type="text" name="lieu" required />
-    </label><br />
+        <textarea name="description" placeholder="Description" rows="4" required
+          class="w-full px-4 py-3 rounded-xl bg-white bg-opacity-90 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#FF7A5C]"></textarea>
 
-    <label>Organisateur :
-        <input type="text" name="organisateur" required />
-    </label><br />
+        <!-- Image -->
+        <label for="image"
+          class="flex items-center justify-center bg-gradient-to-r from-[#F43F7E] to-[#FF7A5C] text-white font-semibold w-full p-4 rounded-xl cursor-pointer transition-transform hover:scale-105">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M3 7h18M3 12h18M3 17h18" />
+          </svg>
+          Choisir une image
+        </label>
+        <input id="image" type="file" name="image" accept="image/*" required class="hidden" />
 
-    <label>Participants max :
-        <input type="number" name="Participants_max" required />
-    </label><br />
+        <!-- Bouton -->
+        <button type="submit"
+          class="w-full bg-gradient-to-r from-[#FF7A5C] to-[#F43F7E] text-white font-bold py-3 px-8 rounded-full shadow-md transition-transform hover:scale-105">
+          Créer l’événement
+        </button>
+      </form>
 
-    <label>Prix :
-        <input type="text" name="prix" required />
-    </label><br />
+      <p id="message" class="mt-4 text-white text-sm text-center"></p>
+    </div>
+  </main>
 
-    <label>Snippet :
-        <input type="text" name="snippet" required />
-    </label><br />
-
-    <label>Catégorie :
-        <input type="text" name="categorie" required />
-    </label><br />
-
-    <label>Inscription :
-        <select name="inscription">
-            <option>Avec inscription</option>
-            <option>Sans inscription</option>
-        </select>
-    </label><br />
-
-    <label>Image :
-        <input type="file" name="image" accept="image/*" required />
-    </label><br />
-
-    <button type="submit">Créer l'événement</button>
-</form>
-
-<p id="message"></p>
-
-<Footer />
-
-<script type="module">
+  <script type="module">
     const form = document.querySelector('#event-form');
     const message = document.querySelector('#message');
 
     form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        message.textContent = '';
+      e.preventDefault();
+      message.textContent = '';
 
-        const formData = new FormData(form);
+      const formData = new FormData(form);
 
-        try {
-            const response = await fetch('/api/ajout-evenement', {
-                method: 'POST',
-                body: formData
-            });
+      try {
+        const response = await fetch('/api/ajout-evenement', {
+          method: 'POST',
+          body: formData
+        });
 
-            const result = await response.json();
-            console.log('[Résultat API]', JSON.stringify(result, null, 2));
-
-            if (result.success) {
-                message.textContent = 'Événement créé avec succès.';
-                form.reset();
-                setTimeout(() => {
-                    window.location.href = '/connecte';
-                }, 1000);
-            } else {
-                message.textContent = 'Erreur : ' + result.message;
-            }
-        } catch (error) {
-            console.error('Erreur de requête :', error);
-            message.textContent = 'Erreur de connexion au serveur.';
+        const result = await response.json();
+        if (result.success) {
+          message.textContent = '✅ Événement créé avec succès !';
+          form.reset();
+          setTimeout(() => {
+            window.location.href = '/connecte';
+          }, 1000);
+        } else {
+          message.textContent = '❌ Erreur : ' + result.message;
         }
+      } catch (error) {
+        console.error(error);
+        message.textContent = '❌ Erreur de connexion au serveur.';
+      }
     });
-</script>
+  </script>
+</Layout>
