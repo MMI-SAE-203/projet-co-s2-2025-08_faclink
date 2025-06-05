@@ -17,6 +17,7 @@
     "alpine": "^0.2.1",
     "astro": "^5.5.3",
     "js": "^0.1.0",
+    "pocketbase": "^0.26.0",
     "tailwindcss": "^4.1.3"
   },
   "description": "[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/F_6McqTJ) # Projet collectif S.2 2025",
