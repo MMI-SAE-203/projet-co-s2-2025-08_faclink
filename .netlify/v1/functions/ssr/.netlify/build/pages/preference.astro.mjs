@@ -1,0 +1,35 @@
+import { e as createAstro, f as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_a8KlzRQY.mjs';
+import 'kleur/colors';
+import { $ as $$Layout } from '../chunks/Layout_BJvyOuGE.mjs';
+import PocketBase from 'pocketbase';
+export { renderers } from '../renderers.mjs';
+
+const $$Astro = createAstro("https://faclink.netlify.app");
+const $$Preference = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
+  Astro2.self = $$Preference;
+  const pb = new PocketBase("https://pb-faclink.alice-frelin.fr:443");
+  const rawCookies = Astro2.request.headers.get("cookie") || "";
+  pb.authStore.loadFromCookie(rawCookies);
+  const isLoggedIn = pb.authStore.isValid;
+  const user = pb.authStore.model;
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "isLoggedIn": isLoggedIn, "user": user }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<form method="POST" action="/api/preferences" class="min-h-screen bg-gradient-to-b from-[var(--color-violet)] to-orange-400 text-white px-6 py-8"> <!-- Header --> <div class="flex justify-between items-center mb-8"> <a href="/parametres" class="text-3xl font-bold">&larr;</a> <div class="w-6"></div> </div> <!-- Titre --> <h1 class="text-3xl sm:text-4xl font-extrabold text-center bg-gradient-to-r from-orange-400 to-pink-400 text-transparent bg-clip-text mb-8">
+Mes préférences
+</h1> <!-- Toggles --> <div class="space-y-4 mb-8"> <label class="flex items-center gap-4"> <input type="checkbox" name="emails" class="toggle toggle-lg bg-pink-500 border-white" checked> <span>Recevoir des emails</span> </label> <label class="flex items-center gap-4"> <input type="checkbox" name="notifications" class="toggle toggle-lg bg-pink-500 border-white" checked> <span>Activer/désactiver les notifications</span> </label> </div> <!-- Fréquence --> <div class="mb-6"> <p class="font-bold mb-2">Paramétrer la fréquence</p> <div class="space-y-2 text-sm"> <label class="flex items-center gap-2"><input type="radio" name="frequence" value="all"> Toutes les notifications</label> <label class="flex items-center gap-2"><input type="radio" name="frequence" value="messages"> Uniquement les messages & événements</label> <label class="flex items-center gap-2"><input type="radio" name="frequence" value="silence"> Mode silencieux</label> </div> </div> <!-- Visibilité --> <div class="mb-6"> <p class="font-bold mb-2">Visibilité du profil</p> <div class="space-y-2 text-sm"> <label class="flex items-center gap-2"><input type="radio" name="visibilite" value="public"> Public</label> <label class="flex items-center gap-2"><input type="radio" name="visibilite" value="prive"> Privé → Le profil caché, sauf amis/BDE</label> </div> </div> <!-- Messages --> <div class="mb-6"> <p class="font-bold mb-2">Qui peut envoyer des messages ?</p> <div class="space-y-2 text-sm"> <label class="flex items-center gap-2"><input type="radio" name="messages" value="all"> Tout le monde</label> <label class="flex items-center gap-2"><input type="radio" name="messages" value="campus"> Seulement les étudiants de mon campus</label> <label class="flex items-center gap-2"><input type="radio" name="messages" value="contacts"> Uniquement mes contacts (amis Fac’Link)</label> </div> </div> <!-- Localisation --> <div class="mb-10"> <p class="font-bold mb-2">Partage de localisation (optionnel)</p> <div class="space-y-2 text-sm"> <label class="flex items-center gap-2"><input type="checkbox" name="position" value="active"> Afficher ma position lors des événements</label> <label class="flex items-center gap-2"><input type="checkbox" name="position" value="cachee"> Cacher ma localisation</label> </div> </div> <!-- Bouton --> <div class="text-center"> <button type="submit" class="w-full sm:w-auto px-10 py-3 rounded-full font-bold bg-gradient-to-r from-[var(--color-violet)] to-pink-500 text-white">
+Enregistrer les modifications
+</button> </div> </form> ` })}`;
+}, "/Users/admin/Documents/GitHub/projet-co-s2-2025-08_faclink/src/pages/preference.astro", void 0);
+
+const $$file = "/Users/admin/Documents/GitHub/projet-co-s2-2025-08_faclink/src/pages/preference.astro";
+const $$url = "/preference";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$Preference,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };

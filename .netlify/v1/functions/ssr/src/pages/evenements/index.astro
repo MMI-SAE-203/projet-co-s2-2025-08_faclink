@@ -1,0 +1,47 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getEvenements } from '../../../backend/backend.mjs';
+
+const evenements = await getEvenements();
+---
+
+<Layout isLoggedIn={true} user={null}>
+  <main class="bg-white min-h-screen px-4 py-8">
+    <div class="max-w-5xl mx-auto">
+      <h1 class="text-3xl font-bold text-[var(--color-violet)] mb-6">Agenda</h1>
+      <a href="/evenements/creation_evenement" class="inline-block mb-6 bg-gradient-to-r from-orange-400 to-pink-500 text-white font-semibold px-6 py-2 rounded-full shadow hover:scale-105 transition">
+        + Créer un événement
+      </a>
+
+      {evenements?.length > 0 ? (
+        <div class="space-y-6">
+          {evenements.map((event) => (
+            <div class="bg-[var(--color-violet)] rounded-2xl text-white overflow-hidden shadow-md flex flex-col md:flex-row">
+              {event.img && (
+                <img src={event.img} alt={`Image de ${event.Nom}`} class="w-full md:w-1/3 object-cover h-64 md:h-auto" />
+              )}
+              <div class="p-4 flex-1">
+                <h2 class="text-2xl font-semibold mb-2">{event.Nom}</h2>
+                <p class="text-sm font-light mb-1"><span class="font-bold">Catégorie :</span> {event.categorie}</p>
+                <p class="text-sm mb-1"><span class="font-bold">Description :</span> {event.Description || "Non précisé"}</p>
+                <p class="text-sm mb-1"><span class="font-bold">Horaire :</span> {event.Horaire ? new Date(event.Horaire).toLocaleString('fr-FR') : "Non précisé"}</p>
+                <p class="text-sm mb-1"><span class="font-bold">Lieu :</span> {event.Lieu || "Non précisé"}</p>
+                <p class="text-sm mb-1"><span class="font-bold">Organisateur :</span> {event.Organisateur || "Non précisé"}</p>
+                <p class="text-sm mb-1"><span class="font-bold">Participants max :</span> {event.Participants_max || "Non précisé"}</p>
+                <p class="text-sm mb-1"><span class="font-bold">Inscription :</span> {event.Inscription || "Non précisé"}</p>
+                <p class="text-sm mb-1"><span class="font-bold">Prix :</span> {event.Prix || "Gratuit"}</p>
+                <p class="text-sm mt-2 italic">{event.Snippet}</p>
+
+                <a href="#" class="mt-4 inline-block bg-white text-[var(--color-violet)] font-bold px-6 py-2 rounded-full hover:bg-gray-100 transition">
+                  Voir plus
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p class="text-center text-gray-600 text-lg">Aucun événement trouvé.</p>
+      )}
+    </div>
+  </main>
+</Layout>
