@@ -1,0 +1,64 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PocketBase from "pocketbase";
+
+export const prerender = false;
+const pb = new PocketBase("https://pb-faclink.alice-frelin.fr:443");
+const rawCookies = Astro.request.headers.get("cookie") || "";
+pb.authStore.loadFromCookie(rawCookies);
+const isLoggedIn = pb.authStore.isValid;
+const user = pb.authStore.model;
+
+const messages = await pb.collection("message").getFullList({
+  sort: "-created",
+  expand: "envoyeur,receveur",
+});
+
+const conversations = new Map();
+
+for (const msg of messages) {
+  const { envoyeur, receveur } = msg.expand;
+
+  // L'utilisateur doit être impliqué dans le message
+  const isUserSender = envoyeur?.id === user.id;
+  const isUserReceiver = receveur?.id === user.id;
+
+  if (!isUserSender && !isUserReceiver) continue;
+
+  const otherUser = isUserSender ? receveur : envoyeur;
+  if (!otherUser) continue;
+
+  // Ne garde que la dernière conversation avec chaque personne
+  if (!conversations.has(otherUser.id)) {
+    conversations.set(otherUser.id, {
+      user: otherUser,
+      lastMessage: msg,
+    });
+  }
+}
+---
+
+<Layout isLoggedIn={isLoggedIn} user={user}>
+  <main class="p-4 bg-[#f9f4ff] min-h-screen">
+    <h1 class="text-3xl font-bold text-[var(--color-violet)] mb-6">Messagerie</h1>
+
+    {Array.from(conversations.values()).map(({ user: otherUser, lastMessage }) => (
+      <a
+        href={`/message/${otherUser.id}`}
+        class="flex items-center gap-4 mb-4 p-3 rounded-lg bg-white shadow-md hover:bg-gray-50 transition"
+      >
+        <img
+          src={otherUser.avatar ? pb.files.getUrl(otherUser, otherUser.avatar) : "/default-avatar.png"}
+          alt={otherUser.name}
+          class="w-12 h-12 rounded-full object-cover"
+        />
+        <div class="flex flex-col">
+          <span class="font-bold text-[var(--color-violet)]">{otherUser.name}</span>
+          <span class="text-gray-600 text-sm truncate max-w-[250px]">
+            {lastMessage.contenu}
+          </span>
+        </div>
+      </a>
+    ))}
+  </main>
+</Layout>
