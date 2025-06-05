@@ -1,0 +1,51 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PocketBase from "pocketbase";
+const pb = new PocketBase("https://pb-faclink.alice-frelin.fr:443");
+const rawCookies = Astro.request.headers.get("cookie") || "";
+pb.authStore.loadFromCookie(rawCookies);
+const isLoggedIn = pb.authStore.isValid;
+const user = pb.authStore.model;
+const photo = "/src/assets/manon.webp"; // remplace par le vrai chemin vers la photo
+---
+
+<Layout isLoggedIn={isLoggedIn} user={user}>
+  <div class="min-h-screen bg-white">
+    <!-- Header -->
+    <div class="bg-[#470050] text-white px-6 py-4 flex justify-between items-center">
+      <a href="/compte" class="text-3xl font-bold">&larr;</a>
+      <div class="w-6"></div> <!-- Pour équilibrer -->
+    </div>
+
+    <!-- Photo de profil -->
+    <div class="relative bg-[var(--color-violet)] flex flex-col items-center pb-8">
+      <img src={photo} alt="Image profil" class="w-40 h-40 rounded-full border-4 border-white -mt-20 z-10" />
+      <h2 class="text-xl font-bold text-white mt-2">{user?.firstname} {user?.name}</h2>
+      <p class="text-white text-sm">Changer l'image</p>
+    </div>
+
+    <!-- Formulaire -->
+    <form method="POST" action="/api/updateProfil" class="px-6 py-8 space-y-6 max-w-md mx-auto">
+      <div>
+        <label class="block font-bold text-[#470050] mb-1">Nom</label>
+        <input type="text" name="name" value={user?.name} class="w-full border rounded-md p-3" />
+      </div>
+      <div>
+        <label class="block font-bold text-[#470050] mb-1">Prénom</label>
+        <input type="text" name="firstname" value={user?.firstname} class="w-full border rounded-md p-3" />
+      </div>
+      <div>
+        <label class="block font-bold text-[#470050] mb-1">Mail Universitaire</label>
+        <input type="email" name="email" value={user?.email} class="w-full border rounded-md p-3" />
+      </div>
+      <div>
+        <label class="block font-bold text-[#470050] mb-1">Mot de passe</label>
+        <input type="password" name="password" placeholder="••••••••" class="w-full border rounded-md p-3" />
+      </div>
+
+      <button type="submit" class="w-full rounded-full bg-gradient-to-r from-orange-400 to-pink-500 text-white font-bold py-3 text-center">
+        Mettre à jour
+      </button>
+    </form>
+  </div>
+</Layout>

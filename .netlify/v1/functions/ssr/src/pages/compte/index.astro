@@ -1,0 +1,68 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import manon from '../../assets/manon.webp';
+import ecole from '../../assets/ecole.svg';
+import ou from '../../assets/ou.svg';
+import plaisir from '../../assets/plaisir.svg';
+import basket from '../../assets/basket.webp';
+import revision from '../../assets/revision.webp';
+---
+
+<Layout isLoggedIn={true} user={{}}>
+  <main class="min-h-screen bg-white pb-24">
+
+    <!-- Couverture avec dégradé + avatar -->
+    <section class="relative h-48 bg-gradient-to-b from-[#470050] to-[#A43F5F]">
+      <div class="absolute inset-0 flex flex-col items-center justify-end pb-4 text-white">
+        <img src={manon.src} alt="Photo de profil" class="w-32 h-32 rounded-full border-4 border-white object-cover -mb-16 z-10" />
+      </div>
+    </section>
+
+    <!-- Infos principales -->
+    <section class="mt-20 text-center px-4 text-[var(--color-violet)]">
+      <h1 class="text-xl font-bold">Manon Bernard</h1>
+      <p class="text-sm text-gray-800">Étudiante en sciences sociales</p>
+      <p class="text-sm text-gray-600 mb-4">17 amis</p>
+
+      <div class="flex justify-center gap-4">
+        <a href="/profil" class="bg-[var(--color-violet)] text-white font-bold px-4 py-2 rounded-full text-sm">Editer le profil</a>
+        <a href="/amis" class="bg-[var(--color-violet)] text-white font-bold px-4 py-2 rounded-full text-sm">Trouver des amis</a>
+      </div>
+    </section>
+
+    <!-- Infos complémentaires -->
+    <section class="px-4 mt-6 text-sm space-y-2">
+      <p class="flex items-center gap-2 text-gray-800"><img src={ou.src} class="h-4" /> Besançon</p>
+      <p class="flex items-center gap-2 text-gray-800"><img src={ecole.src} class="h-4" /> LEA - Université de Besançon</p>
+      <p class="flex items-center gap-2 text-gray-800"><img src={plaisir.src} class="h-4" /> Lecture, sociologie, sport</p>
+    </section>
+
+    <!-- Événements -->
+    <section class="px-4 mt-8">
+      <h2 class="text-[var(--color-violet)] font-bold mb-2 text-lg">J’y participe</h2>
+      <div class="flex gap-3 overflow-x-auto">
+        {[1,2,3,4].map(() => (
+          <div class="min-w-[100px] text-center">
+            <img src={basket.src} alt="event" class="w-24 h-24 rounded-xl border-2 border-[var(--color-violet)] object-cover" />
+            <p class="text-xs mt-1 text-gray-800">Session de basket</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Mur -->
+    <section class="px-4 mt-8">
+      <div class="flex justify-between items-center mb-2">
+        <h2 class="text-[var(--color-violet)] font-bold text-lg">Mur</h2>
+        <button class="text-[var(--color-violet)] text-xl font-bold">+</button>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div class="bg-[var(--color-rose)] p-3 rounded-xl text-white text-sm">
+          Quelqu’un vient au cours de basket demain ?
+        </div>
+        <img src={revision.src} alt="notes" class="rounded-xl object-cover" />
+      </div>
+    </section>
+
+  </main>
+</Layout>
